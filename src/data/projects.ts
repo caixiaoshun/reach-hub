@@ -86,17 +86,33 @@ export const mockProjects: Project[] = [
   },
   {
     id: '4',
-    title: 'Ethical AI and Bias Detection in Machine Learning',
-    authors: ['Dr. Alice Smith', 'Dr. Frank Blue', 'Dr. Irene Silver'],
-    year: 'June 5, 2024',
-    shortDescription: 'Investigating fairness, accountability, and transparency in AI systems, with a focus on bias detection and mitigation.',
-    longDescription: `As AI systems become more pervasive, ensuring they are ethical, fair, and unbiased is crucial. This research focuses on developing novel techniques to identify, quantify, and mitigate biases in datasets and machine learning models across various modalities (e.g., text, images, structured data). We explore fairness metrics (e.g., demographic parity, equalized odds), interpretability methods (e.g., SHAP, LIME), and algorithmic recourse to build more trustworthy and accountable AI. Our work also covers data governance, privacy-preserving machine learning, and the societal impact of AI technologies. Case studies in healthcare, finance, and criminal justice are examined.`,
-    imageUrl: 'https://picsum.photos/seed/ethical-ai/1200/600',
-    imageAiHint: 'data privacy',
-    tags: ['Ethical AI', 'Bias Detection', 'Fairness', 'XAI', 'Machine Learning'],
-    status: 'Ongoing',
-    researchArea: 'AI Ethics',
-    repositoryLink: 'https://github.com/research-group/ethical-ai-framework',
+    title: 'LEPrompter',
+    authors: ['Chen Ben', 'Zou Xuechao', 'Li Kai', 'Zhang Yu', 'Xing, Junliang', 'Tao, Pin'],
+    year: '2023',
+    shortDescription: 'LEPrompter is a two-stage prompt-enhanced deep learning framework for high-fidelity lake extraction from remote sensing imagery, achieving state-of-the-art accuracy without additional computational cost.',
+    longDescription: `LEPrompter is a deep learning framework designed to enhance lake extraction from remote sensing imagery through a two-stage prompt-based approach. The first stage involves generating various prompt types, such as points, boxes, and masks, to guide the model's attention to relevant regions. The second stage employs a lightweight decoder that integrates these prompts with image features to produce accurate segmentation masks. This methodology establishes a new baseline for high-fidelity lake extraction, demonstrating improved performance across multiple datasets`,
+    imageUrl: 'https://picsum.photos/seed/robotics-rl/1200/600',
+    imageAiHint: 'robotic arm',
+    tags: ["Lake Extraction",
+      "Remote Sensing",
+      "Semantic Segmentation",
+      "Prompt Learning",
+      "Deep Learning",
+      "Computer Vision",
+      "Environmental Monitoring"],
+    status: 'Published',
+    demoType: 'segmentation', // Could be a video or simulation link
+    publicationLink: 'https://github.com/BastianChen/LEPrompter',
+    researchArea: "Remote Sensing Image Processing",
+    relatedPublications: [
+      { title: 'Safe Exploration in Reinforcement Learning for Robotics', source: 'Robotics Today, 2023', link: '#' }
+    ],
+    examples: [
+      new URL('@/assets/examples/leformer/0.jpg', import.meta.url).href,
+      new URL('@/assets/examples/leformer/3.jpg', import.meta.url).href,
+      new URL('@/assets/examples/leformer/30.jpg', import.meta.url).href
+    ],
+    route_name: "/leprompter_predict"
   },
   {
     id: '5',
