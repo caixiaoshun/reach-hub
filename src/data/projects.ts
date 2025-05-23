@@ -55,21 +55,34 @@ export const mockProjects: Project[] = [
   },
   {
     id: '3',
-    title: 'Reinforcement Learning for Robotic Control',
-    authors: ['Dr. David Brown', 'Eva Black'],
-    year: 'November 20, 2023',
-    shortDescription: 'Applying reinforcement learning algorithms to enable autonomous robotic manipulation and navigation.',
-    longDescription: `This project aims to develop intelligent robots that can learn complex tasks through trial and error in dynamic environments. We explore a range of reinforcement learning algorithms, including Q-learning, Deep Q-Networks (DQN), Policy Gradients (e.g., REINFORCE, A2C, A3C), and Actor-Critic methods (e.g., DDPG, SAC). Simulated environments (e.g., MuJoCo, PyBullet, Isaac Gym) are used for initial training and algorithm development, followed by transfer to real-world robotic platforms. Key applications include industrial automation (e.g., assembly, pick-and-place), assistive robotics, and autonomous navigation in cluttered spaces. We also investigate sample efficiency, safety, and exploration-exploitation trade-offs in RL.`,
+    title: 'LEFormer',
+    authors: ['Chen Ben', 'Zou Xuechao', 'Zhang Yu', 'Li Jiayu', 'Li Kai', 'Xing, Junliang', 'Tao, Pin'],
+    year: '2024',
+    shortDescription: 'LEFormer is a hybrid CNN-Transformer architecture designed for accurate lake extraction from remote sensing imagery, achieving state-of-the-art performance with a lightweight model.',
+    longDescription: `LEFormer is a lightweight deep learning model designed for lake extraction from remote sensing imagery. It introduces a hybrid architecture that combines convolutional networks for local feature extraction and transformer modules for capturing global context. This design allows the model to handle complex water boundaries and noisy backgrounds effectively. By fusing the strengths of CNNs and transformers through a tailored cross-encoder fusion module, LEFormer achieves high segmentation accuracy with minimal computational cost. The model has been extensively evaluated on multiple benchmark datasets and demonstrates superior performance in both precision and efficiency compared to existing methods.`,
     imageUrl: 'https://picsum.photos/seed/robotics-rl/1200/600',
     imageAiHint: 'robotic arm',
-    tags: ['Reinforcement Learning', 'Robotics', 'AI', 'Control Systems', 'DQN'],
+    tags: ["Lake Extraction",
+      "Remote Sensing",
+      "Semantic Segmentation",
+      "CNN-Transformer Hybrid",
+      "Lightweight Model",
+      "Deep Learning",
+      "Computer Vision",
+      "Environmental Monitoring"],
     status: 'Published',
-    demoType: 'other', // Could be a video or simulation link
-    publicationLink: 'https://example.com/publication/robotics-rl',
-    researchArea: 'Robotics & AI',
+    demoType: 'segmentation', // Could be a video or simulation link
+    publicationLink: 'https://github.com/BastianChen/LEFormer',
+    researchArea: "Semantic Segmentation",
     relatedPublications: [
       { title: 'Safe Exploration in Reinforcement Learning for Robotics', source: 'Robotics Today, 2023', link: '#' }
-    ]
+    ],
+    examples: [
+      new URL('@/assets/examples/leformer/0.jpg', import.meta.url).href,
+      new URL('@/assets/examples/leformer/3.jpg', import.meta.url).href,
+      new URL('@/assets/examples/leformer/30.jpg', import.meta.url).href
+    ],
+    route_name: "/leformer_predict"
   },
   {
     id: '4',
