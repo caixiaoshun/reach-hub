@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Professional Blue Theme, adapted for Earth Tones */
+    --background: 210 20% 98%; /* #F7F9FA - Very light, almost white (Satellite White) */
+    --foreground: 210 15% 25%; /* Dark cool gray for text (Satellite Gray) */
+
+    --card: 0 0% 100%; /* White for cards */
+    --card-foreground: 210 15% 25%; /* Dark cool gray for card text */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 25%;
+
+    --primary: 205 70% 50%; /* #4DA8DA - Sky Blue */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+
+    --secondary: 210 20% 90%; /* #E1E5E9 - Light Gray for secondary elements, tag backgrounds */
+    --secondary-foreground: 210 15% 35%; /* Darker gray for text on secondary */
+
+    --muted: 210 20% 94%; /* #EFF2F5 - Lighter Gray for muted elements (Satellite Gray muted) */
+    --muted-foreground: 210 15% 45%; /* Medium gray for muted text */
+
+    /* Accent color - Forest Green. Tailwind's teal is kept for now, but can be adjusted. */
+    /* For a true Forest Green: ~120 30% 35% */
+    --accent: 173 69% 49%; /* #20C997 - Teal (can be overridden or a new var added for Forest Green) */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 20% 88%; /* #DCE1E6 - Light Gray border (Satellite Gray border) */
+    --input: 210 20% 96%;  /* #F0F3F5 - Slightly darker gray for inputs */
+    --ring: 205 70% 50%; /* Sky Blue for ring */
+
+    --radius: 0.75rem; /* Slightly increased radius for a softer look */
+
+    /* Sidebar specific colors - updated to blue theme */
+    --sidebar-background: 210 60% 15%; /* #172A47 - Dark Blue for sidebar */
+    --sidebar-foreground: 210 40% 90%; /* #DDE1E6 - Light text for dark sidebar */
+    --sidebar-primary: 210 70% 55%; /* #4B8CD8 - Brighter Blue for sidebar active */
+    --sidebar-primary-foreground: 0 0% 100%; /* White text */
+    --sidebar-accent: 173 69% 49%; /* Teal for sidebar accent */
+    --sidebar-accent-foreground: 0 0% 100%; /* White text */
+    --sidebar-border: 210 60% 25%; /* #263D5E - Darker border for sidebar */
+    --sidebar-ring: 210 70% 55%;
+  }
+
+  .dark {
+    --background: 210 15% 12%; /* #1A1D21 - Dark Satellite Gray background */
+    --foreground: 210 20% 85%; /* #C7CED4 - Light gray text */
+
+    --card: 210 15% 18%; /* #262A2E - Darker card background */
+    --card-foreground: 210 20% 85%;
+
+    --popover: 210 15% 18%;
+    --popover-foreground: 210 20% 85%;
+
+    --primary: 205 70% 55%; /* Brighter Sky Blue for dark mode */
+    --primary-foreground: 210 15% 12%; /* Dark text on primary for contrast */
+
+    --secondary: 210 15% 22%; /* #2F343A - Darker secondary background */
+    --secondary-foreground: 210 20% 75%; 
+    
+    --muted: 210 15% 20%; /* #2B2F33 - Darker muted */
+    --muted-foreground: 210 20% 55%; 
+
+    --accent: 173 60% 55%; /* Brighter teal/green for dark mode accents */
+    --accent-foreground: 210 15% 12%; /* Dark text on accent */
+
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 15% 25%; /* #343A40 - Darker border */
+    --input: 210 15% 23%; /* #31363C - Darker input background */
+    --ring: 205 70% 55%; /* Brighter Sky Blue for ring */
+
+    /* Sidebar specific colors for dark mode - updated to blue theme */
+    --sidebar-background: 210 60% 8%; /* #071730 - Very Very Dark Blue for sidebar */
+    --sidebar-foreground: 210 40% 85%; /* #CCD3DB - Light text for dark sidebar */
+    --sidebar-primary: 210 70% 60%; /* #5F99E1 - Brighter Blue for sidebar active */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 173 60% 55%; /* Brighter teal for sidebar accent */
+    --sidebar-accent-foreground: 210 60% 10%;
+    --sidebar-border: 210 60% 20%; /* #1C3252 - Darker border for sidebar */
+    --sidebar-ring: 210 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  html {
+    @apply antialiased; /* Ensure antialiasing is applied */
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
