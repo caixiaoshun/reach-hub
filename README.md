@@ -4,7 +4,7 @@
 
 A modern, responsive frontend platform built with Vue 3 and Vite for showcasing research projects and datasets—especially in the field of remote sensing.
 
-🔗 **Live Demo**: [https://caixiaoshun.github.io/reach-hub-vue/#/](https://caixiaoshun.github.io/reach-hub-vue/#/)
+🔗 **Live Demo**: [https://caixiaoshun.github.io/reach-hub/#/](https://caixiaoshun.github.io/reach-hub/#/)
 
 ---
 
@@ -32,8 +32,8 @@ A modern, responsive frontend platform built with Vue 3 and Vite for showcasing 
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/caixiaoshun/reach-hub-vue.git
-cd reach-hub-vue
+git clone https://github.com/caixiaoshun/reach-hub.git
+cd reach-hub
 pnpm install
 ```
 
@@ -94,7 +94,7 @@ Make sure your `vite.config.ts` includes:
 
 ```ts
 export default defineConfig({
-  base: '/reach-hub-vue/' // Replace 'reach-hub-vue' with your repository name if different
+  base: '/reach-hub/' // Replace 'reach-hub' with your repository name if different
 });
 ```
 
@@ -103,7 +103,7 @@ export default defineConfig({
 ## 📁 Project Structure
 
 ```bash
-reach-hub-vue/
+reach-hub/
 ├── public/                 # Static assets (e.g., favicon.png)
 ├── src/
 │   ├── assets/             # Images, icons, etc. (processed by Vite)

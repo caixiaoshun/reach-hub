@@ -13,7 +13,7 @@ export default defineConfig({
   server: {
     port: 9002, // Match original dev port if desired, Vite default is 5173
   },
-  base: '/reach-hub-vue/',
+  base: '/reach-hub/',
   build: {
     outDir: 'dist'
   }
