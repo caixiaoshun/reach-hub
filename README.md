@@ -57,7 +57,6 @@ Ensure the following are installed:
 | `pnpm preview` | Preview the built app locally        |
 | `pnpm lint`    | Run ESLint for code quality checking |
 | `pnpm typecheck` | Run TypeScript type checking       |
-<!-- TODO: Add pnpm test when tests are implemented -->
 
 ---
 
