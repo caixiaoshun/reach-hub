@@ -1,5 +1,5 @@
 <template>
-  <Card class="group relative flex flex-col h-full bg-card text-card-foreground rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out overflow-hidden border-transparent hover:border-primary/30">
+  <Card class="group relative flex flex-col h-full bg-card text-foreground rounded-xl shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out overflow-hidden border border-border/60 dark:border-slate-700/50 hover:border-primary/70 dark:hover:border-primary/70">
     <div class="relative h-56 w-full overflow-hidden">
       <img 
         :src="project.imageUrl" 
@@ -13,9 +13,9 @@
       </div>
     </div>
 
-    <CardContent class="flex flex-col flex-grow p-5">
+    <CardContent class="flex flex-col flex-grow px-5 py-6 sm:p-5">
       <h3 
-        class="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2"
+        class="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2"
         :title="project.title"
       >
         {{ project.title }}
@@ -25,16 +25,15 @@
         By {{ project.authors.join(', ') }}
       </p>
 
-      <p class="text-sm text-muted-foreground mb-4 line-clamp-2 flex-grow">
+      <p class="text-base sm:text-sm text-muted-foreground mb-4 line-clamp-2 flex-grow leading-relaxed">
         {{ project.shortDescription }}
       </p>
 
       <div v-if="project.tags && project.tags.length" class="flex flex-wrap gap-2 mb-5">
         <Badge 
           v-for="tag in project.tags.slice(0, 3)" 
-          :key="tag" 
-          variant="outline"
-          class="text-xs font-medium border-border/70 bg-secondary/50 text-secondary-foreground/80"
+          :key="tag"
+          class="text-xs font-medium border-primary/20 bg-primary/10 text-primary/80 hover:bg-primary/20 hover:text-primary dark:bg-primary/15 dark:text-primary/70 dark:hover:bg-primary/25 dark:hover:text-primary/90 px-2.5 py-0.5 rounded-full transition-colors duration-200"
         >
           {{ tag }}
         </Badge>
@@ -42,7 +41,7 @@
       
       <div class="mt-auto pt-4 border-t border-border/20">
         <RouterLink :to="`/projects/${project.id}`" class="w-full">
-          <Button variant="outline" class="w-full group/button text-primary border-primary/50 hover:bg-primary/10">
+          <Button variant="outline" class="w-full group/button text-primary border-primary/70 hover:bg-primary/15 dark:hover:bg-primary/20">
             View Details
             <ArrowRight class="ml-2 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
           </Button>

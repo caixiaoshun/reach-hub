@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 15% 25%;
 
-    --primary: 205 70% 50%; /* #4DA8DA - Sky Blue */
+    --primary: 220 83% 50%; /* Sky Blue -> Deeper Blue (Tailwind blue-600) */
     --primary-foreground: 0 0% 100%; /* White text on primary */
 
     --secondary: 210 20% 90%; /* #E1E5E9 - Light Gray for secondary elements, tag backgrounds */
@@ -25,7 +25,7 @@
 
     /* Accent color - Forest Green. Tailwind's teal is kept for now, but can be adjusted. */
     /* For a true Forest Green: ~120 30% 35% */
-    --accent: 173 69% 49%; /* #20C997 - Teal (can be overridden or a new var added for Forest Green) */
+    --accent: 26 95% 53%; /* Teal -> Vivid Orange (Tailwind orange-500) */
     --accent-foreground: 0 0% 100%; /* White text on accent */
 
     --destructive: 0 84.2% 60.2%;
@@ -58,7 +58,7 @@
     --popover: 210 15% 18%;
     --popover-foreground: 210 20% 85%;
 
-    --primary: 205 70% 55%; /* Brighter Sky Blue for dark mode */
+    --primary: 217 90% 60%; /* Brighter Sky Blue -> Brighter Deeper Blue (Tailwind blue-500) */
     --primary-foreground: 210 15% 12%; /* Dark text on primary for contrast */
 
     --secondary: 210 15% 22%; /* #2F343A - Darker secondary background */
@@ -67,7 +67,7 @@
     --muted: 210 15% 20%; /* #2B2F33 - Darker muted */
     --muted-foreground: 210 20% 55%; 
 
-    --accent: 173 60% 55%; /* Brighter teal/green for dark mode accents */
+    --accent: 28 96% 61%; /* Brighter teal/green -> Brighter Orange (Tailwind orange-400) */
     --accent-foreground: 210 15% 12%; /* Dark text on accent */
 
     --destructive: 0 72.2% 50.6%;
