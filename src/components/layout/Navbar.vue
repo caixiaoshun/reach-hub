@@ -41,7 +41,7 @@
               <Menu class="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" class="w-[300px] sm:w-[400px] bg-sidebar text-sidebar-foreground">
+          <SheetContent side="left" class="w-5/6 sm:w-4/5 max-w-md bg-sidebar text-sidebar-foreground">
             <SheetHeader>
               <SheetTitle class="text-sidebar-primary text-xl flex items-center space-x-2">
                 <svg
