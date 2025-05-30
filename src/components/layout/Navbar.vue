@@ -41,9 +41,9 @@
               <Menu class="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" class="w-[300px] sm:w-[400px] bg-sidebar text-sidebar-foreground">
+          <SheetContent side="left" class="w-5/6 sm:w-4/5 max-w-md bg-background text-foreground p-6 border-l dark:border-slate-700">
             <SheetHeader>
-              <SheetTitle class="text-sidebar-primary text-xl flex items-center space-x-2">
+              <SheetTitle class="text-primary text-2xl font-semibold flex items-center space-x-2 mb-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 256 256"
@@ -57,20 +57,20 @@
                 <span>Research Hub</span>
               </SheetTitle>
             </SheetHeader>
-            <nav class="flex flex-col space-y-3 mt-6">
+            <nav class="flex flex-col space-y-1 mt-2">
               <router-link
                 v-for="link in navLinks"
                 :key="link.name"
                 :to="link.path"
-                class="px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-sidebar-primary hover:bg-sidebar-accent/20 flex items-center gap-3"
-                active-class="text-sidebar-primary bg-sidebar-accent/20"
+                class="px-4 py-3 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-150 ease-in-out flex items-center gap-3"
+                active-class="bg-primary/10 text-primary font-semibold"
                 @click="closeSheet"
               >
                 <component :is="link.icon" class="h-5 w-5" />
                 {{ link.name }}
               </router-link>
             </nav>
-            <div class="mt-auto pt-6">
+            <div class="mt-auto">
               <ThemeToggle />
             </div>
           </SheetContent>

@@ -9,7 +9,7 @@
         </div>
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h1
-            class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-400 dark:from-primary dark:to-sky-300">
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-400 dark:from-primary dark:to-sky-300">
             Welcome to the Research Hub
           </h1>
           <p class="text-lg sm:text-xl md:text-2xl text-foreground/80 dark:text-foreground/70 max-w-3xl mx-auto mb-10">
@@ -47,23 +47,29 @@
             </p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-card p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-              <Lightbulb class="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 class="text-xl font-semibold text-card-foreground mb-2">Innovative Research</h3>
-              <p class="text-sm text-muted-foreground">Pushing the boundaries of science and technology with novel
+            <div class="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 border border-border/60 dark:border-slate-700/50 hover:border-primary/50 dark:hover:border-primary/70 transition-all duration-300 ease-in-out group text-center">
+              <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                <Lightbulb class="h-8 w-8 text-primary" />
+              </div>
+              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">Innovative Research</h3>
+              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">Pushing the boundaries of science and technology with novel
                 approaches and discoveries.</p>
             </div>
-            <div class="bg-card p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-              <Send class="h-12 w-12 text-primary mx-auto mb-4" />
+            <div class="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 border border-border/60 dark:border-slate-700/50 hover:border-primary/50 dark:hover:border-primary/70 transition-all duration-300 ease-in-out group text-center">
+              <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                <Send class="h-8 w-8 text-primary" />
+              </div>
               <!-- Using Send as a proxy for collaboration/impact -->
-              <h3 class="text-xl font-semibold text-card-foreground mb-2">Global Impact</h3>
-              <p class="text-sm text-muted-foreground">Developing solutions that address critical global issues in
+              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">Global Impact</h3>
+              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">Developing solutions that address critical global issues in
                 sustainability and development.</p>
             </div>
-            <div class="bg-card p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-              <Target class="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 class="text-xl font-semibold text-card-foreground mb-2">Applied Technology</h3>
-              <p class="text-sm text-muted-foreground">Translating research findings into practical applications and
+            <div class="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 border border-border/60 dark:border-slate-700/50 hover:border-primary/50 dark:hover:border-primary/70 transition-all duration-300 ease-in-out group text-center">
+              <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                <Target class="h-8 w-8 text-primary" />
+              </div>
+              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">Applied Technology</h3>
+              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">Translating research findings into practical applications and
                 real-world technologies.</p>
             </div>
           </div>
@@ -120,7 +126,7 @@
       </section>
 
       <!-- Featured Datasets Section -->
-      <section class="py-12 md:py-16 bg-background">
+      <section class="py-12 md:py-16 bg-slate-50 dark:bg-slate-800/30">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="text-3xl font-semibold text-center mb-8 md:mb-12">
             Featured Datasets

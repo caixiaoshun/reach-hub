@@ -2,7 +2,7 @@
   <footer class="bg-background text-foreground">
 
     <div class="bg-foreground/90 text-background py-12">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="container mx-auto p-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
           <div>
             <h3 class="text-lg font-semibold mb-4 text-background/80">Research Group</h3>
