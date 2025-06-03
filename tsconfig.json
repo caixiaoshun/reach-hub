@@ -24,7 +24,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": [] // Removed "element-plus/global"
+    "types": ["element-plus/global"] // Removed "element-plus/global"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

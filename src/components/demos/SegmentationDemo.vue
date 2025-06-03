@@ -104,13 +104,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { Button } from '@/components/ui/button';
+import { ElMessage } from 'element-plus';
 import { Card, CardContent } from '@/components/ui/card';
 import { ImagePlus, Sparkles, Wand2, UploadCloud, X, Loader2 } from 'lucide-vue-next';
 // import { ElMessage } from 'element-plus';
-import { useToast } from '@/composables/useToast';
 import { post } from '@/http' // 确保你用的是我们封装好的 post 方法
 
-const { toast } = useToast();
 const fileInputRef = ref<HTMLInputElement | null>(null);
 const selectedFile = ref<File | null>(null);
 const inputImageUrl = ref<string | null>(null);
@@ -131,7 +130,7 @@ const handleFileChange = (event: Event) => {
   if (target.files && target.files[0]) {
     const file = target.files[0];
     if (!file.type.startsWith('image/')) {
-      toast({ title: 'Error', description: "Invalid file type!", variant: 'destructive' });
+      ElMessage.error("Invalid file type!")
       return;
     }
     selectedFile.value = file;
@@ -161,7 +160,7 @@ const loadExample = async (example: string) => {
 
     predictSegmentation()
   } catch (error) {
-    toast({ title: 'Error', description: "Failed to load example image.", variant: 'destructive' });
+    ElMessage.error("Failed to load example image.")
   }
 }
 
@@ -196,12 +195,12 @@ const predictSegmentation = async () => {
     })
 
     outputImageUrl.value = `data:image/png;base64,${response.image}`
-    toast({ title: 'Success', description: 'Segmentation completed!', variant: 'default' });
+    ElMessage.success('Segmentation completed!')
 
   } catch (error) {
     // 回退到原始图像
     outputImageUrl.value = inputImageUrl.value
-    toast({ title: 'Warning', description: 'Server error. Showing original image.', variant: 'default' }); // Or a 'warning' variant if available
+    ElMessage.warning('Server error. Showing original image.')
   } finally {
     isPredicting.value = false
   }
