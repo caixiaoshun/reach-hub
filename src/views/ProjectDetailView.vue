@@ -9,9 +9,9 @@
 
       <div v-else-if="project" class="space-y-12">
         <!-- Hero Image -->
-        <div class="relative w-full h-64 md:h-96 rounded-xl overflow-hidden shadow-lg">
+        <div class="relative w-full rounded-xl overflow-hidden shadow-lg">
           <img :src="project.imageUrl" :alt="`Image for ${project.title}`"
-            :data-ai-hint="project.imageAiHint || 'project image'" class="w-full h-full object-cover" />
+            :data-ai-hint="project.imageAiHint || 'project image'" class="w-full h-full object-contain" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
         </div>
 

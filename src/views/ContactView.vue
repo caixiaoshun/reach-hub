@@ -64,21 +64,21 @@
                 <Mail class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 class="font-semibold text-foreground">Email</h3>
-                  <a href="mailto:contact@researchhub.edu" class="text-primary hover:underline">contact@researchhub.edu</a>
+                  <a href="mailto:contact@researchhub.edu" class="text-primary hover:underline">taopin@tsinghua.edu.cn</a>
                 </div>
               </div>
               <div class="flex items-start space-x-3">
                 <Phone class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 class="font-semibold text-foreground">Phone</h3>
-                  <p class="text-muted-foreground">(123) 456-7890</p>
+                  <p class="text-muted-foreground">62772129</p>
                 </div>
               </div>
               <div class="flex items-start space-x-3">
                 <MapPin class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 class="font-semibold text-foreground">Address</h3>
-                  <p class="text-muted-foreground">123 Research Park Avenue, Tech City, TX 75001</p>
+                  <p class="text-muted-foreground">北京市清华大学</p>
                 </div>
               </div>
             </CardContent>
