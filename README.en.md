@@ -91,5 +91,15 @@ reach-hub/
 - Tailwind CSS
 - Lucide Icons
 
+## Markdown Translation
+Use the built-in script to translate Markdown files between English and Chinese:
+
+```bash
+npm run translate-md README.md README.en.auto.md zh en
+```
+
+The command above translates `README.md` from Chinese to English and saves the
+result as `README.en.auto.md`. Adjust the language codes as needed.
+
 ## License
 This project is licensed under the [MIT License](LICENSE).

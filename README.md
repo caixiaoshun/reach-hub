@@ -91,5 +91,15 @@ reach-hub/
 - Tailwind CSS
 - Lucide Icons
 
+## Markdown 翻译
+借助脚本可在中文和英文 Markdown 之间互相转换：
+
+```bash
+npm run translate-md README.en.md README.auto.zh.md en zh
+```
+
+上述命令会把 `README.en.md` 从英文翻译为中文，并保存为
+`README.auto.zh.md`。语言代码可按需调整。
+
 ## 许可证
 本項目遵循 [MIT](LICENSE) 許可協議。
