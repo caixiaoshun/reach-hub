@@ -20,6 +20,13 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    // Add any specific rules here
+    // Allow single word component names
+    'vue/multi-word-component-names': 'off',
+    // Allow usage of any type
+    '@typescript-eslint/no-explicit-any': 'off',
+    // Allow require statements
+    '@typescript-eslint/no-var-requires': 'off',
+    // Ignore unused vars to reduce noise
+    '@typescript-eslint/no-unused-vars': 'off',
   },
 };
