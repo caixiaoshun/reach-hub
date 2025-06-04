@@ -1,13 +1,13 @@
 <template>
   <AppLayout>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <PageHeader title="Our Research Projects" subtitle="Explore our cutting-edge work in AI, remote sensing, and more." class="mb-12 text-center" />
+      <PageHeader :title="t('projectsTitle')" :subtitle="t('projectsSubtitle')" class="mb-12 text-center" />
 
       <div class="mb-10 max-w-xl mx-auto">
         <div class="relative">
           <Input
             type="search"
-            placeholder="Search projects by title or member..."
+            :placeholder="t('projectSearchPlaceholder')"
             v-model="searchQuery"
             class="w-full pl-10 pr-4 py-3 rounded-lg text-base shadow-sm focus:ring-primary focus:border-primary"
           />
@@ -28,8 +28,8 @@
         />
       </div>
       <div v-else class="text-center py-12">
-        <h3 class="text-xl font-semibold text-muted-foreground">No projects found.</h3>
-        <p class="text-muted-foreground mt-2">Try adjusting your search query.</p>
+        <h3 class="text-xl font-semibold text-muted-foreground">{{ t('noProjectsFound') }}</h3>
+        <p class="text-muted-foreground mt-2">{{ t('adjustSearch') }}</p>
       </div>
     </div>
   </AppLayout>
@@ -37,6 +37,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import type { Project } from '@/types';
 import { mockProjects } from "@/data/projects";
 import ProjectCard from "@/components/projects/ProjectCard.vue";
@@ -45,6 +46,8 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-vue-next";
 import AppLayout from '@/components/layout/AppLayout.vue';
 import PageHeader from '@/components/layout/PageHeader.vue';
+
+const { t } = useI18n();
 
 const searchQuery = ref('');
 const isLoading = ref(true);
