@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 一款基于 Vue 3 和 Vite 打造的現代化科研項目與數據集展示平台，尤其適用於遙感領域。
+详细的项目蓝图与样式规范请参见 [docs/README.md](docs/README.md)。
 
 ## 功能亮點
 - ⚡ **現代化技術棧**：Vue 3 + Vite + TypeScript + Tailwind CSS，構建高性能前端。

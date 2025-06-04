@@ -1,6 +1,6 @@
 <template>
   <Card
-    class="group flex h-full flex-col overflow-hidden rounded-xl bg-card text-foreground shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out border border-border/60 dark:border-slate-700/50 hover:border-primary/70 dark:hover:border-primary/70"
+    class="group flex h-full flex-col overflow-hidden rounded-xl bg-card text-foreground shadow-lg hover:shadow-primary/20 hover:shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-[1.02] border border-border/60 dark:border-slate-700/50 hover:border-primary/70 dark:hover:border-primary/70"
   >
     <div class="relative h-48 w-full overflow-hidden">
       <img
