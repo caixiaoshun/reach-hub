@@ -2,10 +2,9 @@
   <section class="py-16 md:py-24 bg-background">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Research Areas</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">{{ $t('ourResearchAreas') }}</h2>
         <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-          Our group conducts research across a wide range of disciplines, pushing the
-          boundaries of what's possible.
+          {{ $t('researchAreasIntro') }}
         </p>
          <div class="mt-4 h-1 w-24 bg-primary mx-auto rounded-full"></div>
       </div>
@@ -28,29 +27,32 @@
 </template>
 
 <script setup lang="ts">
-import { shallowRef } from 'vue';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BarChartBig, Eye, MessageSquareText, Cpu } from 'lucide-vue-next';
 
-const researchAreas = shallowRef([
+const { t } = useI18n();
+
+const researchAreas = computed(() => [
   {
-    title: 'Machine Learning',
-    description: 'Developing advanced machine learning algorithms to solve complex problems in various domains.',
+    title: t('mlTitle'),
+    description: t('mlDesc'),
     icon: BarChartBig,
   },
   {
-    title: 'Computer Vision',
-    description: 'Research focused on enabling computers to gain high-level understanding from digital images and videos.',
+    title: t('cvTitle'),
+    description: t('cvDesc'),
     icon: Eye,
   },
   {
-    title: 'Natural Language Processing',
-    description: 'Working on systems that can understand, interpret, and generate human language in a valuable way.',
+    title: t('nlpTitle'),
+    description: t('nlpDesc'),
     icon: MessageSquareText,
   },
   {
-    title: 'Quantum Computing',
-    description: 'Exploring computational models based on quantum physics principles for solving complex problems.',
+    title: t('quantumTitle'),
+    description: t('quantumDesc'),
     icon: Cpu,
   },
 ]);
