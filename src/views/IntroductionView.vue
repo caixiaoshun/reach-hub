@@ -1,7 +1,7 @@
 <template>
   <AppLayout>
-    <PageHeader title="About Our Research Hub"
-      subtitle="Discover our mission, team, values, and how you can get involved." />
+    <PageHeader :title="t('introductionTitle')"
+      :subtitle="t('introductionSubtitle')" />
 
     <!-- Our Mission Section -->
     <PageSection class="bg-secondary">
@@ -10,12 +10,9 @@
           <div class="flex justify-center mb-6">
             <Target class="h-16 w-16 text-primary" />
           </div>
-          <h2 class="text-3xl font-bold text-primary mb-6">Our Mission</h2>
+          <h2 class="text-3xl font-bold text-primary mb-6">{{ t('missionTitle') }}</h2>
           <p class="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl mx-auto">
-            To advance the frontiers of knowledge in <strong>artificial intelligence</strong> and <strong>data science</strong>,
-            fostering <strong>innovation</strong> through collaborative research, and promoting
-            <strong>open science</strong> for the betterment of society. We strive to create impactful solutions
-            to real-world challenges.
+            {{ t('missionDesc') }}
           </p>
         </Card>
       </div>
@@ -24,7 +21,7 @@
     <!-- Meet the Team Section -->
     <PageSection>
       <div class="container mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold text-center text-primary mb-10">Meet the Team</h2>
+        <h2 class="text-3xl font-bold text-center text-primary mb-10">{{ t('meetTeamTitle') }}</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <Card v-for="member in teamMembers" :key="member.id"
             class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out">
@@ -64,7 +61,7 @@
     <!-- Our Values Section -->
     <PageSection class="bg-secondary">
       <div class="container mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold text-center text-primary mb-10">Our Core Values</h2>
+        <h2 class="text-3xl font-bold text-center text-primary mb-10">{{ t('coreValuesTitle') }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div v-for="value in coreValues" :key="value.id"
             class="bg-background p-6 rounded-xl shadow-md text-center transform hover:scale-105 transition-transform duration-300 flex flex-col items-center">
@@ -82,14 +79,13 @@
     <PageSection>
       <div class="container mx-auto px-4 py-16">
         <Card class="bg-gradient-to-r from-primary/90 via-primary to-accent/90 text-primary-foreground p-8 md:p-12 rounded-xl shadow-2xl text-center transform hover:scale-[1.02] transition-transform duration-300">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Interested in Collaborating?</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">{{ t('collaborationTitle') }}</h2>
           <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            We are always looking for passionate individuals and organizations to join our research endeavors.
-            Whether you're a student, researcher, or industry professional, let's connect and explore how we can innovate together.
+            {{ t('collaborationDesc') }}
           </p>
           <Button size="lg" variant="secondary" class="bg-background text-primary hover:bg-background/90" @click="navigateToContact">
             <Send class="mr-2 h-5 w-5" />
-            Get in Touch
+            {{ t('getInTouch') }}
           </Button>
         </Card>
       </div>
@@ -101,6 +97,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import AppLayout from '@/components/layout/AppLayout.vue';
 import PageHeader from '@/components/layout/PageHeader.vue';
 import PageSection from '@/components/shared/PageSection.vue';
@@ -109,6 +106,7 @@ import { Button } from '@/components/ui/button';
 import { Target, User, Linkedin, GraduationCap, Send, Lightbulb, Users, ShieldCheck, BookOpenCheck } from 'lucide-vue-next';
 
 const router = useRouter();
+const { t } = useI18n();
 
 interface TeamMember {
   id: number;
@@ -125,9 +123,33 @@ interface TeamMember {
 }
 
 const teamMembers = ref<TeamMember[]>([
-  { id: 1, name: 'Dr. Pin Tao', title: 'Associate Professor, Tsinghua University', bio: 'Dr. Pin Tao received his B.S. and Ph.D. degrees in computer science and technology from Tsinghua University in 1997 and 2002. He serves as Associate Professor at the Department of Computer Science and Technology, Tsinghua University, and is Vice Director of the Key Laboratory of Pervasive Computing, Ministry of Education. He has published over 80 papers and holds more than 10 patents. His research focuses on human-AI hybrid intelligence and multimedia-embedded processing.', imageUrl: new URL('@/assets/biography/tp.jpg', import.meta.url).href, imageAiHint: 'professional woman scientist', socials: { linkedin: 'https://www.cs.tsinghua.edu.cn/info/1117/3542.htm', scholar: 'https://www.cs.tsinghua.edu.cn/info/1117/3542.htm' } },
-  { id: 2, name: 'Shiying Wang', title: 'Ph.D. Candidate, Qinghai University', bio: 'Shiying Wang received her B.E. degree from Jilin Agricultural University in 2015 and her M.S. degree from Qinghai University in 2018. She is currently pursuing a Ph.D. degree at Qinghai University. Her research focuses on remote sensing image processing, particularly in grassland informatics.', imageUrl: new URL('@/assets/biography/wsy.jpg', import.meta.url).href, imageAiHint: 'software engineer', socials: { linkedin: 'https://cs.qhu.edu.cn/jxgz/jxysz/szgk/50127.htm', twitter: '#' } },
-  { id: 3, name: 'Xuechao Zou', title: 'Ph.D. Student, Beijing Jiaotong University', bio: 'Xuechao Zou received his B.E. degree in 2021 and M.S. degree in 2024 from Qinghai University. He is currently pursuing a Ph.D. degree at the School of Computer Science and Technology, Beijing Jiaotong University. His research interests focus on computer vision, particularly in remote sensing image processing.', imageUrl: new URL('@/assets/biography/zxc-2.jpg', import.meta.url).href, imageAiHint: 'female researcher', socials: { linkedin: 'https://github.com/XavierJiezou', scholar: '#' } },
+  {
+    id: 1,
+    name: '陶品',
+    title: '清华大学副教授',
+    bio: '陶品博士于1997年和2002年在清华大学获得计算机科学与技术学士和博士学位，现任清华大学计算机科学与技术系副教授、普适计算教育部重点实验室副主任。发表论文80余篇，拥有10余项专利，研究方向为人机混合智能和多媒体嵌入式处理。',
+    imageUrl: new URL('@/assets/biography/tp.jpg', import.meta.url).href,
+    imageAiHint: 'professional woman scientist',
+    socials: { linkedin: 'https://www.cs.tsinghua.edu.cn/info/1117/3542.htm', scholar: 'https://www.cs.tsinghua.edu.cn/info/1117/3542.htm' }
+  },
+  {
+    id: 2,
+    name: '王诗颖',
+    title: '青海大学博士研究生',
+    bio: '王诗颖于2015年获吉林农业大学工学学士学位，2018年获青海大学硕士学位，目前在青海大学攻读博士，研究方向为遥感图像处理，尤其是草地信息学。',
+    imageUrl: new URL('@/assets/biography/wsy.jpg', import.meta.url).href,
+    imageAiHint: 'software engineer',
+    socials: { linkedin: 'https://cs.qhu.edu.cn/jxgz/jxysz/szgk/50127.htm', twitter: '#' }
+  },
+  {
+    id: 3,
+    name: '邹雪超',
+    title: '北京交通大学博士生',
+    bio: '邹雪超于2021年和2024年在青海大学分别获得工学学士和硕士学位，现为北京交通大学计算机与信息技术学院博士研究生，研究兴趣为计算机视觉，尤其是遥感图像处理。',
+    imageUrl: new URL('@/assets/biography/zxc-2.jpg', import.meta.url).href,
+    imageAiHint: 'female researcher',
+    socials: { linkedin: 'https://github.com/XavierJiezou', scholar: '#' }
+  },
 ]);
 
 interface CoreValue {
@@ -138,10 +160,10 @@ interface CoreValue {
 }
 
 const coreValues = ref<CoreValue[]>([
-  { id: 1, icon: Lightbulb, title: 'Innovation', description: 'We foster a culture of creativity and continuously explore new frontiers in AI and research.' },
-  { id: 2, icon: Users, title: 'Collaboration', description: 'We believe in the power of teamwork, both internally and with the global research community.' },
-  { id: 3, icon: ShieldCheck, title: 'Integrity', description: 'We uphold the highest ethical standards in our research, ensuring transparency and accountability.' },
-  { id: 4, icon: BookOpenCheck, title: 'Open Science', description: 'We are committed to sharing knowledge and contributing to the open advancement of science.' },
+  { id: 1, icon: Lightbulb, title: t('innovation'), description: t('innovationDesc') },
+  { id: 2, icon: Users, title: t('collaboration'), description: t('collaborationDesc') },
+  { id: 3, icon: ShieldCheck, title: t('integrity'), description: t('integrityDesc') },
+  { id: 4, icon: BookOpenCheck, title: t('openScience'), description: t('openScienceDesc') },
 ]);
 
 const navigateToContact = () => {

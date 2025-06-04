@@ -5,29 +5,29 @@
       <div class="container mx-auto p-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-background/80">Research Group</h3>
+            <h3 class="text-lg font-semibold mb-4 text-background/80">{{ t('footerResearchGroup') }}</h3>
             <p class="mb-4 text-background/70">
-              Exploring the frontiers of research and innovation through collaborative projects and cutting-edge technology.
+              {{ t('footerDescription') }}
             </p>
-            <p class="text-background/60">&copy; {{ currentYear }} Research Group. All rights reserved.</p>
+            <p class="text-background/60">&copy; {{ currentYear }} {{ t('footerResearchGroup') }}. {{ t('footerCopyright') }}</p>
           </div>
 
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-background/80">Links</h3>
+            <h3 class="text-lg font-semibold mb-4 text-background/80">{{ t('footerLinks') }}</h3>
             <ul class="space-y-2">
-              <li><router-link to="/" class="hover:text-primary transition-colors text-background/70">Home</router-link></li>
-              <li><router-link to="/introduction" class="hover:text-primary transition-colors text-background/70">About Us</router-link></li>
-              <li><router-link to="/projects" class="hover:text-primary transition-colors text-background/70">Research Projects</router-link></li>
-              <li><router-link to="/contact" class="hover:text-primary transition-colors text-background/70">Contact</router-link></li>
+              <li><router-link to="/" class="hover:text-primary transition-colors text-background/70">{{ t('nav.home') }}</router-link></li>
+              <li><router-link to="/introduction" class="hover:text-primary transition-colors text-background/70">{{ t('nav.introduction') }}</router-link></li>
+              <li><router-link to="/projects" class="hover:text-primary transition-colors text-background/70">{{ t('nav.projects') }}</router-link></li>
+              <li><router-link to="/contact" class="hover:text-primary transition-colors text-background/70">{{ t('nav.contact') }}</router-link></li>
             </ul>
           </div>
 
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-background/80">Contact</h3>
+            <h3 class="text-lg font-semibold mb-4 text-background/80">{{ t('footerContact') }}</h3>
             <address class="not-italic space-y-2 text-background/70">
-              <p>123 Research Avenue<br>Innovation City, IC 12345</p>
-              <p>Email: <a href="mailto:info@researchgroup.org" class="hover:text-primary transition-colors">info@researchgroup.org</a></p>
-              <p>Phone: <a href="tel:+11234567890" class="hover:text-primary transition-colors">(123) 456-7890</a></p>
+              <p>{{ t('footerAddressLine1') }}<br>{{ t('footerAddressLine2') }}</p>
+              <p>{{ t('footerEmail') }}: <a href="mailto:info@researchgroup.org" class="hover:text-primary transition-colors">info@researchgroup.org</a></p>
+              <p>{{ t('footerPhone') }}: <a href="tel:+11234567890" class="hover:text-primary transition-colors">(123) 456-7890</a></p>
             </address>
           </div>
         </div>
@@ -38,12 +38,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 // import { useRouter } from 'vue-router';
 // import { Button } from '@/components/ui/button';
 // import { ArrowRight } from 'lucide-vue-next';
 
 // const router = useRouter();
 const currentYear = ref(new Date().getFullYear());
+const { t } = useI18n();
 
 // const navigateToContact = () => {
 // router.push('/contact');
