@@ -67,9 +67,9 @@
           <!-- Right Column / Sidebar -->
           <div class="lg:col-span-1 space-y-8">
             <!-- Tags Section -->
-            <PageSection title="Tags" v-if="project.tags && project.tags.length > 0" class="top-24">
+            <PageSection title="Tags" v-if="displayTags.length > 0" class="top-24">
               <div class="flex flex-wrap gap-2">
-                <a v-for="tag in project.tags" :key="tag" :href="getTagWikiLink(tag)" target="_blank" rel="noopener noreferrer"
+                <a v-for="tag in displayTags" :key="tag" :href="getTagWikiLink(tag)" target="_blank" rel="noopener noreferrer"
                   class="text-inherit no-underline"
                   :title="`Learn more about ${tag} on Wikipedia`">
                   <Badge variant="secondary" class="cursor-pointer hover:bg-secondary/80 transition-colors">
@@ -183,6 +183,13 @@ const displayLong = computed(() => {
   if (locale.value === 'zh') return project.value.longDescriptionZh || project.value.longDescription;
   if (locale.value === 'bo') return project.value.longDescriptionBo || project.value.longDescription;
   return project.value.longDescription;
+});
+
+const displayTags = computed(() => {
+  if (!project.value || !project.value.tags) return [];
+  if (locale.value === 'zh' && project.value.tagsZh) return project.value.tagsZh;
+  if (locale.value === 'bo' && project.value.tagsBo) return project.value.tagsBo;
+  return project.value.tags;
 });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

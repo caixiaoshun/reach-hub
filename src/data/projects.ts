@@ -15,7 +15,9 @@ export const mockProjects: Project[] = [
     longDescription: `Fine-grained remote sensing image segmentation is essential for accurately identifying detailed objects in remote sensing images. Recently, vision transformer models (VTMs) pre-trained on large-scale datasets have demonstrated strong zero-shot generalization. However, directly applying them to specific tasks may lead to domain shift. We introduce a novel end-to-end learning paradigm combining knowledge guidance with domain refinement to enhance performance. We present two key components: the Feature Alignment Module (FAM) and the Feature Modulation Module (FMM). FAM aligns features from a CNN-based backbone with those from the pretrained VTM's encoder using channel transformation and spatial interpolation, and transfers knowledge via KL divergence and L2 normalization constraint. FMM further adapts the knowledge to the specific domain to address domain shift. We also introduce a fine-grained grass segmentation dataset and demonstrate, through experiments on two datasets, that our method achieves a significant improvement of 2.57 mIoU on the grass dataset and 3.73 mIoU on the cloud dataset. The results highlight the potential of combining knowledge transfer and domain adaptation to overcome domain-related challenges and data limitations. `,
     imageUrl: new URL('@/assets/imageUrl/KTDA.png', import.meta.url).href,
     imageAiHint: 'satellite segmentation',
-    tags: ['Remote Sensing', 'Image Segmentation', 'Deep Learning', 'Vision Transformer', 'Domain Adaptation'],
+    tags: ["Remote Sensing", "Image Segmentation", "Deep Learning", "Vision Transformer", "Domain Adaptation"],
+  tagsZh: ["遥感", "图像分割", "深度学习", "视觉变压器", "域适应"],
+  tagsBo: ["ཐག་རིང་ཚོར་སྣང་།", "པར་རིས་དབྱེ་འབྱེད།", "སློབ་སྦྱོང་གཏིང་ཟབ་པ།", "མཐོང་རྒྱ་བསྒྱུར་བ།", "ཁྱབ་ཁོངས་མཐུན་སྒྲིལ།"],
     status: 'Active',
     demoType: 'segmentation', // Changed to 'segmentation'
     publicationLink: 'https://xavierjiezou.github.io/KTDA/',
@@ -45,7 +47,9 @@ export const mockProjects: Project[] = [
     longDescription: `Cloud segmentation is a critical challenge in remote sensing image interpretation, as its accuracy directly impacts the effectiveness of subsequent data processing and analysis. Recently, vision foundation models (VFM) have demonstrated powerful generalization capabilities across various visual tasks. In this paper, we present a parameter-efficient adaptive approach, termed Cloud-Adapter, designed to enhance the accuracy and robustness of cloud segmentation. Our method leverages a VFM pretrained on general domain data, which remains frozen, eliminating the need for additional training. Cloud-Adapter incorporates a lightweight spatial perception module that initially utilizes a convolutional neural network (ConvNet) to extract dense spatial representations. These multi-scale features are then aggregated and serve as contextual inputs to an adapting module, which modulates the frozen transformer layers within the VFM. Experimental results demonstrate that the Cloud-Adapter approach, utilizing only 0.6% of the trainable parameters of the frozen backbone, achieves substantial performance gains. Cloud-Adapter consistently achieves state-of-the-art performance across various cloud segmentation datasets from multiple satellite sources, sensor series, data processing levels, land cover scenarios, and annotation granularities.`,
     imageUrl: new URL('@/assets/imageUrl/cloud-adapter.png', import.meta.url).href,
     imageAiHint: 'text analysis',
-    tags: ['Cloud segmentation', 'Vision Foundation Models', 'Domain Adaptation', 'Fine-Tuning', 'Remote Sensing Image Processing'],
+    tags: ["Cloud segmentation", "Vision Foundation Models", "Domain Adaptation", "Fine-Tuning", "Remote Sensing Image Processing"],
+  tagsZh: ["云细分", "视觉基础模型", "域适应", "微调", "遥感图像处理"],
+  tagsBo: ["སྤྲིན་པའི་དབྱེ་འབྱེད།", "མཐོང་རྒྱའི་ཐེབས་རྩའི་དཔེ་སྟོན།", "ཁྱབ་ཁོངས་མཐུན་སྒྲིལ།", "ལེགས་སྒྲིག་བྱེད་པ།", "ཐག་རིང་ནས་ཚོར་ཤེས་ཀྱི་པར་རིས་ལས་སྣོན་བྱེད་པ།"],
     status: 'Completed',
     demoType: 'segmentation', // No specific interactive demo or could be text-based
     publicationLink: 'https://example.com/publication/nlp-sentiment',
@@ -143,7 +147,9 @@ export const mockProjects: Project[] = [
     longDescription: `This project investigates how quantum phenomena, such as superposition and entanglement, can be harnessed to speed up machine learning tasks or solve problems intractable for classical computers. We are designing and simulating quantum algorithms for optimization (e.g., QAOA, VQE), classification (e.g., quantum SVMs), and generative modeling (e.g., quantum GANs). The research involves theoretical development, quantum circuit design, and simulation on quantum computing platforms (e.g., Qiskit, Cirq). We are preparing for the era of fault-tolerant quantum computers while also exploring applications for noisy intermediate-scale quantum (NISQ) devices. Potential impacts on drug discovery, materials science, and financial modeling are considered.`,
     imageUrl: 'https://picsum.photos/seed/quantum-ml/1200/600',
     imageAiHint: 'quantum circuit',
-    tags: ['Quantum Computing', 'Machine Learning', 'AI', 'Algorithms', 'QML'],
+    tags: ["Quantum Computing", "Machine Learning", "AI", "Algorithms", "QML"],
+  tagsZh: ["量子计算", "机器学习", "人工智能", "算法", "QML"],
+  tagsBo: ["ཚད་རྡུལ་རྩིས་རིག་པ།", "འཕྲུལ་ཆས་སློབ་སྦྱོང་།", "AII", "རྩིས་རིགས།", "QML"],
     status: 'Ongoing',
     demoType: 'mnist', // Changed this project to use mnist for variety
     researchArea: 'Quantum Computing',

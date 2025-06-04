@@ -19,13 +19,13 @@
             <RouterLink to="/projects">
               <Button size="lg"
                 class="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform duration-150 hover:scale-105">
-                <Rocket class="mr-2 h-5 w-5" /> Explore Projects
+                <Rocket class="mr-2 h-5 w-5" /> {{ $t('exploreProjects') }}
               </Button>
             </RouterLink>
             <RouterLink to="/introduction">
               <Button size="lg" variant="outline"
                 class="border-primary text-primary hover:bg-primary/10 dark:hover:bg-primary/20 shadow-lg transform transition-transform duration-150 hover:scale-105">
-                <UsersIcon class="mr-2 h-5 w-5" /> Learn About Us
+                <UsersIcon class="mr-2 h-5 w-5" /> {{ $t('learnAboutUs') }}
               </Button>
             </RouterLink>
           </div>
@@ -42,8 +42,7 @@
           <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-foreground mb-3">{{ $t('heroTagline') }}</h2>
             <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our interdisciplinary team tackles complex challenges by integrating advanced technology with deep domain
-              expertise. We focus on creating impactful, sustainable, and ethical solutions.
+              {{ $t('heroDescription') }}
             </p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -51,26 +50,23 @@
               <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
                 <Lightbulb class="h-8 w-8 text-primary" />
               </div>
-              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">Innovative Research</h3>
-              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">Pushing the boundaries of science and technology with novel
-                approaches and discoveries.</p>
+              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">{{ $t('innovativeResearchTitle') }}</h3>
+              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">{{ $t('innovativeResearchDesc') }}</p>
             </div>
             <div class="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 border border-border/60 dark:border-slate-700/50 hover:border-primary/50 dark:hover:border-primary/70 transition-all duration-300 ease-in-out group text-center">
               <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
                 <Send class="h-8 w-8 text-primary" />
               </div>
               <!-- Using Send as a proxy for collaboration/impact -->
-              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">Global Impact</h3>
-              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">Developing solutions that address critical global issues in
-                sustainability and development.</p>
+              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">{{ $t('globalImpactTitle') }}</h3>
+              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">{{ $t('globalImpactDesc') }}</p>
             </div>
             <div class="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 border border-border/60 dark:border-slate-700/50 hover:border-primary/50 dark:hover:border-primary/70 transition-all duration-300 ease-in-out group text-center">
               <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
                 <Target class="h-8 w-8 text-primary" />
               </div>
-              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">Applied Technology</h3>
-              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">Translating research findings into practical applications and
-                real-world technologies.</p>
+              <h3 class="text-xl font-semibold text-foreground group-hover:text-primary mb-2 transition-colors duration-300">{{ $t('appliedTechnologyTitle') }}</h3>
+              <p class="text-base sm:text-sm text-muted-foreground leading-relaxed">{{ $t('appliedTechnologyDesc') }}</p>
             </div>
           </div>
         </div>

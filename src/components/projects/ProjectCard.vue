@@ -29,9 +29,9 @@
         {{ displayDescription }}
       </p>
 
-      <div v-if="project.tags && project.tags.length" class="flex flex-wrap gap-2 mb-5">
-        <Badge 
-          v-for="tag in project.tags.slice(0, 3)" 
+      <div v-if="displayTags.length" class="flex flex-wrap gap-2 mb-5">
+        <Badge
+          v-for="tag in displayTags"
           :key="tag"
           class="text-xs font-medium border-primary/20 bg-primary/10 text-primary/80 hover:bg-primary/20 hover:text-primary dark:bg-primary/15 dark:text-primary/70 dark:hover:bg-primary/25 dark:hover:text-primary/90 px-2.5 py-0.5 rounded-full transition-colors duration-200"
         >
@@ -42,7 +42,7 @@
       <div class="mt-auto pt-4 border-t border-border/20">
         <RouterLink :to="`/projects/${project.id}`" class="w-full">
           <Button variant="outline" class="w-full group/button text-primary border-primary/70 hover:bg-primary/15 dark:hover:bg-primary/20">
-            View Details
+            {{ $t('viewDetails') }}
             <ArrowRight class="ml-2 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
           </Button>
         </RouterLink>
@@ -78,6 +78,13 @@ const displayDescription = computed(() => {
   if (locale.value === 'zh') return props.project.shortDescriptionZh || props.project.shortDescription;
   if (locale.value === 'bo') return props.project.shortDescriptionBo || props.project.shortDescription;
   return props.project.shortDescription;
+});
+
+const displayTags = computed(() => {
+  if (!props.project.tags) return [];
+  if (locale.value === 'zh' && props.project.tagsZh) return props.project.tagsZh.slice(0, 3);
+  if (locale.value === 'bo' && props.project.tagsBo) return props.project.tagsBo.slice(0, 3);
+  return props.project.tags.slice(0, 3);
 });
 </script>
 
