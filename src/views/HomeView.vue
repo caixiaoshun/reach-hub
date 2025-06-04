@@ -10,10 +10,10 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16" style="background-image: url('src/assets/imageUrl/home_bg.jpg')">
           <h1
             class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-400 dark:from-primary dark:to-sky-300">
-            Welcome to the Research Hub
+            {{ $t('heroWelcome') }}
           </h1>
           <p class="text-lg sm:text-xl md:text-2xl text-foreground/80 dark:text-foreground/70 max-w-3xl mx-auto mb-10 text-white">
-            Advancing knowledge through cutting-edge research in AI, Remote Sensing, and Sustainable Technologies.
+            {{ $t('heroIntro') }}
           </p>
           <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
             <RouterLink to="/projects">
@@ -168,6 +168,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { RouterLink } from 'vue-router';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
@@ -189,6 +190,7 @@ const featuredDatasets = computed(() => mockDatasets.slice(0, 3));
 const featuredProjects = computed(() => mockProjects.slice(0, 3));
 
 const { toast } = useToast();
+const { t } = useI18n();
 
 // Map icon names to actual components
 const iconComponents: Record<string, any> = {
@@ -201,20 +203,20 @@ const iconComponents: Record<string, any> = {
   // Add other icons if needed, or a fallback
 };
 
-const researchAreas: ResearchArea[] = [
-  { title: 'Machine Learning', description: 'Advancing intelligent systems through data-driven algorithms and models.', iconName: 'Brain', colorClass: 'text-primary', link: '#' },
-  { title: 'Remote Sensing & GIS', description: 'Analyzing geospatial data for environmental monitoring and urban planning.', iconName: 'Satellite', colorClass: 'text-green-500', link: '#' },
-  { title: 'Sustainable Agriculture', description: 'Developing tech solutions for eco-friendly and efficient farming practices.', iconName: 'Leaf', colorClass: 'text-teal-500', link: '#' },
-  { title: 'Data Visualization', description: 'Transforming complex datasets into insightful and interactive visual narratives.', iconName: 'BarChart2', colorClass: 'text-purple-500', link: '#' },
-  { title: 'Quantum Computing', description: 'Exploring quantum algorithms for breakthroughs in computation and AI.', iconName: 'Atom', colorClass: 'text-indigo-500', link: '#' },
-  { title: 'Cybersecurity', description: 'Protecting digital assets and infrastructure through advanced security research.', iconName: 'ShieldCheck', colorClass: 'text-red-500', link: '#' },
-];
+const researchAreas = computed<ResearchArea[]>(() => [
+  { title: t('mlTitle'), description: t('mlDesc'), iconName: 'Brain', colorClass: 'text-primary', link: '#' },
+  { title: t('rsTitle'), description: t('rsDesc'), iconName: 'Satellite', colorClass: 'text-green-500', link: '#' },
+  { title: t('agriTitle'), description: t('agriDesc'), iconName: 'Leaf', colorClass: 'text-teal-500', link: '#' },
+  { title: t('vizTitle'), description: t('vizDesc'), iconName: 'BarChart2', colorClass: 'text-purple-500', link: '#' },
+  { title: t('quantumTitle'), description: t('quantumDesc'), iconName: 'Atom', colorClass: 'text-indigo-500', link: '#' },
+  { title: t('cyberTitle'), description: t('cyberDesc'), iconName: 'ShieldCheck', colorClass: 'text-red-500', link: '#' },
+]);
 
 const handleLearnMoreClick = (area: ResearchArea) => {
   toast({
-    title: 'Information',
-    description: `Details for "${area.title}" will be available shortly.`,
-    variant: 'default', // Or 'success' if you add such a variant to your useToast
+    title: t('infoTitle'),
+    description: t('learnMoreSoon', { title: area.title }),
+    variant: 'default',
   });
 };
 </script>
