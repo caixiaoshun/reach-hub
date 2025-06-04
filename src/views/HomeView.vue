@@ -40,7 +40,7 @@
       <section id="what-we-do" class="py-16 bg-background">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-foreground mb-3">Pioneering Solutions for a Better Future</h2>
+            <h2 class="text-3xl font-bold text-foreground mb-3">{{ $t('heroTagline') }}</h2>
             <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
               Our interdisciplinary team tackles complex challenges by integrating advanced technology with deep domain
               expertise. We focus on creating impactful, sustainable, and ethical solutions.
@@ -77,19 +77,19 @@
       </section>
 
       <!-- Featured Projects -->
-      <section id="featured-projects" class="py-16 bg-slate-50 dark:bg-slate-800/30">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="text-3xl font-bold text-center mb-12 text-foreground">Featured Projects</h2>
+        <section id="featured-projects" class="py-16 bg-slate-50 dark:bg-slate-800/30">
+          <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold text-center mb-12 text-foreground">{{ $t('featuredProjects') }}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard v-for="project in featuredProjects" :key="project.id" :project="project"
               class="transform transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]" />
           </div>
           <div class="text-center mt-12">
             <RouterLink to="/projects">
-              <Button size="lg" variant="outline"
-                class="border-primary text-primary hover:bg-primary/10 dark:hover:bg-primary/20">
-                View All Projects
-              </Button>
+                <Button size="lg" variant="outline"
+                  class="border-primary text-primary hover:bg-primary/10 dark:hover:bg-primary/20">
+                  {{ $t('viewAllProjects') }}
+                </Button>
             </RouterLink>
           </div>
         </div>
@@ -98,7 +98,7 @@
       <!-- Our Research Areas -->
       <section id="research-areas" class="py-16 bg-background">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="text-3xl font-bold text-center mb-12 text-foreground">Our Research Areas</h2>
+          <h2 class="text-3xl font-bold text-center mb-12 text-foreground">{{ $t('ourResearchAreas') }}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card v-for="area in researchAreas" :key="area.title"
               class="bg-card text-card-foreground shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:scale-105 group">
@@ -116,7 +116,7 @@
               <CardContent class="p-6 pt-0">
                 <Button variant="link" class="text-sm font-medium text-primary px-0"
                   @click.prevent="handleLearnMoreClick(area)">
-                  Learn More
+                  {{ $t('learnMore') }}
                   <ArrowRight class="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </CardContent>
@@ -129,7 +129,7 @@
       <section class="py-12 md:py-16 bg-slate-50 dark:bg-slate-800/30">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="text-3xl font-semibold text-center mb-8 md:mb-12">
-            Our Datasets
+            {{ $t('ourDatasets') }}
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <DatasetCard v-for="dataset in featuredDatasets" :key="dataset.id" :dataset="dataset"
@@ -141,7 +141,7 @@
             <RouterLink to="/datasets">
               <Button size="lg" variant="outline"
                 class="border-primary text-primary hover:bg-primary/10 dark:hover:bg-primary/20">
-                Browse All Datasets
+                {{ $t('browseDatasets') }}
               </Button>
             </RouterLink>
           </div>
@@ -154,15 +154,14 @@
       <section id="join-community"
         class="py-16 md:py-24 bg-gradient-to-r from-primary to-sky-500 dark:from-primary/80 dark:to-sky-600/80 text-primary-foreground">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Join Our Research Community</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">{{ $t('joinCommunity') }}</h2>
           <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/90">
-            We are always looking for passionate individuals and organizations to collaborate with. Whether you're a
-            student, researcher, or industry professional, let's connect and explore opportunities to make a difference.
+            {{ $t('joinCommunityDesc') }}
           </p>
           <RouterLink to="/contact">
             <Button size="lg" variant="outline"
               class="bg-background/10 hover:bg-background/20 text-primary-foreground border-primary-foreground hover:border-white transform transition-transform duration-150 hover:scale-105">
-              Get In Touch
+              {{ $t('getInTouch') }}
             </Button>
           </RouterLink>
         </div>
