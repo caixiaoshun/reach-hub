@@ -84,13 +84,13 @@
                   <p class="text-muted-foreground">{{ dataset.domain }}</p>
                 </div>
               </div>
-              <div v-if="dataset.tags && dataset.tags.length > 0">
+              <div v-if="displayTags.length > 0">
                 <div class="flex items-start space-x-3">
                   <TagIcon class="w-4 h-4 mt-1 text-purple-600 dark:text-purple-400 shrink-0" />
                   <div>
                     <h4 class="font-semibold text-foreground/90 mb-1.5">Tags</h4>
                     <div class="flex flex-wrap gap-2">
-                      <Badge v-for="tag in dataset.tags.slice(0, 8)" :key="tag" variant="outline"
+                      <Badge v-for="tag in displayTags" :key="tag" variant="outline"
                         class="cursor-pointer transition-all duration-200 ease-in-out hover:shadow-md hover:scale-105 hover:bg-primary/10 dark:hover:bg-primary/20 group border-border hover:border-primary/70 dark:border-slate-600 dark:hover:border-primary/50"
                         :title="`View '${tag}' on Wikipedia (opens new tab)`" @click="openWikiLink(tag)">
                         <span class="group-hover:text-primary transition-colors text-xs">{{ tag }}</span>
@@ -217,6 +217,13 @@ const displayShort = computed(() => {
   if (locale.value === 'zh') return dataset.value.shortDescriptionZh || dataset.value.shortDescription;
   if (locale.value === 'bo') return dataset.value.shortDescriptionBo || dataset.value.shortDescription;
   return dataset.value.shortDescription;
+});
+
+const displayTags = computed(() => {
+  if (!dataset.value || !dataset.value.tags) return [];
+  if (locale.value === 'zh' && dataset.value.tagsZh) return dataset.value.tagsZh.slice(0, 8);
+  if (locale.value === 'bo' && dataset.value.tagsBo) return dataset.value.tagsBo.slice(0, 8);
+  return dataset.value.tags.slice(0, 8);
 });
 
 const displayLong = computed(() => {

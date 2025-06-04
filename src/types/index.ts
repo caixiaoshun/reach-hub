@@ -24,6 +24,8 @@ export type Project = {
   imageUrl: string;
   imageAiHint?: string; // Added for AI image generation hints
   tags?: string[];
+  tagsZh?: string[];
+  tagsBo?: string[];
   status?: 'Active' | 'Ongoing' | 'Completed' | 'Published'; // Added 'Active'
   publicationLink?: string;
   demoType?: 'mnist' | 'segmentation' | 'other'; // Added 'segmentation'
@@ -166,6 +168,10 @@ export type SegDataset = {
   longDescriptionBo?: string;
   abstract: string;
   tags: string[];
+  tagsZh?: string[];
+  tagsBo?: string[];
+  tagsZh?: string[];
+  tagsBo?: string[];
   imageUrl?: string; // For card display
   imageAiHint?: string;
   domain: string; // e.g., "Remote Sensing", "Urban Mapping", "Climate Science"
