@@ -1,161 +1,95 @@
-# 🌐 Reach Hub Vue
+# Reach Hub 高端科研展示平台
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A modern, responsive frontend platform built with Vue 3 and Vite for showcasing research projects and datasets—especially in the field of remote sensing.
+一款基于 Vue 3 和 Vite 打造的現代化科研項目與數據集展示平台，尤其適用於遙感領域。
 
-🔗 **Live Demo**: [https://caixiaoshun.github.io/reach-hub/#/](https://caixiaoshun.github.io/reach-hub/#/)
+## 功能亮點
+- ⚡ **現代化技術棧**：Vue 3 + Vite + TypeScript + Tailwind CSS，構建高性能前端。
+- 📱 **響應式設計**：在手機、平板與桌面端均能保持出色體驗。
+- 📊 **項目與數據集展示**：卡片化界面，並提供便捷的搜索與篩選。
+- 🪄 **一致的交互**：標準化導航與提示組件，保持統一用戶體驗。
+- 🚀 **GitHub Pages 自動部署**：CI/CD 全程自動完成。
 
----
+## 技術棧
+- [Vue 3](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [pnpm](https://pnpm.io/)
+- [GitHub Actions](https://github.com/features/actions)
 
-## ✨ Features
-
-* ⚡ **Modern Tech Stack**: Vue 3 + Vite + TypeScript + Tailwind CSS for rapid development and a sleek UI.
-* 📱 **Responsive Design**: Optimized layout across all screen sizes.
-* 📊 **Project & Dataset Display**: Clean card-style views for projects and datasets, with custom toast notifications for user actions.
-* 統一 **Consistent UI/UX**: Standardized navigation elements (back buttons, breadcrumbs) and interactive components.
-* 🚀 **GitHub Pages Deployment**: Automatic CI/CD with GitHub Actions.
-
----
-
-## 🛠️ Tech Stack
-
-* [Vue 3](https://vuejs.org/)
-* [Vite](https://vitejs.dev/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [pnpm](https://pnpm.io/)
-* [GitHub Actions](https://github.com/features/actions)
-
----
-
-## 📦 Installation
-
+## 快速開始
 ```bash
 git clone https://github.com/caixiaoshun/reach-hub.git
 cd reach-hub
 pnpm install
 ```
 
----
+### 常用腳本
+| 命令            | 說明                     |
+| --------------- | ------------------------ |
+| `pnpm dev`      | 啟動開發服務             |
+| `pnpm build`    | 構建生產包               |
+| `pnpm preview`  | 本地預覽                 |
+| `pnpm lint`     | 代碼檢查                 |
+| `pnpm typecheck`| TypeScript 類型檢查      |
 
-## 🧪 Getting Started
-
-### ✅ Prerequisites
-
-Ensure the following are installed:
-
-* [Node.js](https://nodejs.org/) (v18+)
-* [pnpm](https://pnpm.io/) (v8+)
-
-### 🧰 Available Commands
-
-| Command        | Description                          |
-| -------------- | ------------------------------------ |
-| `pnpm dev`     | Start the development server         |
-| `pnpm build`   | Build the project for production     |
-| `pnpm preview` | Preview the built app locally        |
-| `pnpm lint`    | Run ESLint for code quality checking |
-| `pnpm typecheck` | Run TypeScript type checking       |
-
----
-
-## 💻 Development
-
+## 本地開發
 ```bash
 pnpm dev
 ```
+瀏覽器打開 [http://localhost:9002](http://localhost:9002) 查看效果。
 
-Runs the app in development mode:
-Open [http://localhost:9002](http://localhost:9002) (or the port Vite assigns) to view it in your browser.
-
----
-
-## 📦 Build for Production
-
+## 構建與部署
 ```bash
 pnpm build
 ```
+產物位於 `dist/` 目錄。推送到 `master` 分支即觸發 CI，自動部署到 GitHub Pages。
 
-The output will be located in the `dist/` directory.
-
----
-
-## 🚀 Deployment
-
-Pushing to the `master` branch triggers a GitHub Actions workflow that:
-
-* Builds the project using `pnpm build`
-* Publishes the contents of `dist/` to the `gh-pages` branch
-* Deploys to GitHub Pages at the URL listed above
-
-Make sure your `vite.config.ts` includes:
-
+### `vite.config.ts` 範例
 ```ts
 export default defineConfig({
-  base: '/reach-hub/' // Replace 'reach-hub' with your repository name if different
+  base: '/reach-hub/' // 如倉庫名稱不同，請相應修改
 });
 ```
 
----
-
-## 📁 Project Structure
-
-```bash
+## 項目結構
+```text
 reach-hub/
-├── public/                 # Static assets (e.g., favicon.png)
+├── public/
 ├── src/
-│   ├── assets/             # Images, icons, etc. (processed by Vite)
-│   ├── components/         # Reusable Vue components (UI, layout, shared)
-│   ├── composables/        # Vue Composition API functions (e.g., useToast)
-│   ├── data/               # Mock data for projects, datasets
-│   ├── http/               # Axios HTTP client configuration
-│   ├── router/             # Vue Router configuration
-│   ├── types/              # TypeScript type definitions
-│   ├── utils/              # Utility functions
-│   ├── views/              # Route-level components (pages)
-│   └── App.vue             # Root app component
-│   └── main.ts             # Main application entry point
-├── .github/workflows/      # GitHub Actions CI/CD configuration
-├── index.html              # HTML entry point
-├── package.json            # Project dependencies and scripts
-├── pnpm-lock.yaml          # pnpm lockfile
-└── vite.config.ts          # Vite build configuration
+│   ├── assets/
+│   ├── components/
+│   ├── composables/
+│   ├── data/
+│   ├── http/
+│   ├── router/
+│   ├── types/
+│   ├── utils/
+│   ├── views/
+│   └── main.ts
+├── index.html
+└── vite.config.ts
 ```
 
----
+## 貢獻指南
+1. Fork 本倉庫
+2. 新建分支 `git checkout -b feature/my-feature`
+3. 提交修改 `git commit -m 'feat: add feature'`
+4. 推送到遠端 `git push origin feature/my-feature`
+5. 發起 Pull Request
 
-## 🤝 Contributing
+## 聯繫方式
+- 📧 郵箱：[cs.shunzhang@foxmail.com](mailto:cs.shunzhang@foxmail.com)
+- 🧑‍💻 GitHub: [@caixiaoshun](https://github.com/caixiaoshun)
 
-We welcome contributions! Here's how:
+## 致謝
+- Vue 3
+- Vite
+- TypeScript
+- Tailwind CSS
+- Lucide Icons
 
-1. Fork the repo
-2. Create a feature branch: `git checkout -b feature/my-feature`
-3. Commit your changes: `git commit -m 'feat: add something cool'`
-4. Push to GitHub: `git push origin feature/my-feature`
-5. Open a Pull Request 🎉
-
----
-
-## 📬 Contact
-
-Feel free to reach out:
-
-* 📧 Email: [cs.shunzhang@foxmail.com](mailto:cs.shunzhang@foxmail.com)
-* 🧑‍💻 GitHub: [@caixiaoshun](https://github.com/caixiaoshun)
-
----
-
-## 🙏 Acknowledgments
-
-* [Vue 3](https://vuejs.org/)
-* [Vite](https://vitejs.dev/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [Lucide Icons](https://lucide.dev/)
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+## 许可证
+本項目遵循 [MIT](LICENSE) 許可協議。
