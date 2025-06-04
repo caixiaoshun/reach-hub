@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { X, Search } from 'lucide-vue-next';
@@ -11,6 +12,8 @@ const props = defineProps<{
   isOpen: boolean;
   projects: Project[];
 }>();
+
+const { locale } = useI18n();
 
 const emit = defineEmits(['update:isOpen']);
 
@@ -117,7 +120,7 @@ function handleKeydown(event: KeyboardEvent) {
                         'w-full text-left p-3 hover:bg-muted/80 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card',
                       )"
                     >
-                      <h3 class="font-medium text-primary-foreground">{{ project.title }}</h3>
+                      <h3 class="font-medium text-primary-foreground">{{ locale === 'zh' ? project.titleZh || project.title : locale === 'bo' ? project.titleBo || project.title : project.title }}</h3>
                       <p class="text-sm text-muted-foreground">{{ project.authors.join(', ') }}</p>
                     </button>
                   </li>

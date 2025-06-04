@@ -1,7 +1,7 @@
 <template>
   <AppLayout>
-    <PageHeader v-if="dataset" :title="dataset.title" :showBackButton="true"
-      :breadcrumbs="[{ text: 'Datasets', to: '/datasets' }, { text: dataset.title, to: route.fullPath }]" class="pb-6 md:pb-8" />
+    <PageHeader v-if="dataset" :title="displayTitle" :showBackButton="true"
+      :breadcrumbs="[{ text: 'Datasets', to: '/datasets' }, { text: displayTitle, to: route.fullPath }]" class="pb-6 md:pb-8" />
     <div v-else-if="!isLoading" class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
       <PageHeader title="Dataset Not Found" :showBackButton="true"
         :breadcrumbs="[{ text: 'Datasets', to: '/datasets' }, { text: 'Not Found', to: route.fullPath }]" />
@@ -28,7 +28,7 @@
       <!-- 1. Dataset Overview (Abstract/Short Description) - Enhanced -->
       <section class="mb-10 md:mb-16 py-8 px-6 bg-slate-50 dark:bg-slate-800/60 rounded-xl shadow-md">
         <p class="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed text-center">
-          {{ dataset.shortDescription || dataset.abstract }}
+          {{ displayShort || dataset.abstract }}
         </p>
       </section>
 
@@ -41,7 +41,7 @@
               About this Dataset
             </h2>
             <div class="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed"
-              v-html="dataset.longDescription"></div>
+              v-html="displayLong"></div>
           </PageSection>
 
           <!-- Dynamic Dataset Preview Components -->
@@ -166,6 +166,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRoute, RouterLink } from 'vue-router'; // RouterLink for explicit import
 import type { SegDataset, PanSharpeningDataset, LucideIconName } from '@/types';
 import { mockDatasets } from '@/data/datasets';
@@ -202,6 +203,28 @@ const route = useRoute();
 const datasetId = computed(() => route.params.id as string);
 const dataset = ref<SegDataset | PanSharpeningDataset | null>(null);
 const isLoading = ref(true);
+const { locale } = useI18n();
+
+const displayTitle = computed(() => {
+  if (!dataset.value) return '';
+  if (locale.value === 'zh') return dataset.value.titleZh || dataset.value.title;
+  if (locale.value === 'bo') return dataset.value.titleBo || dataset.value.title;
+  return dataset.value.title;
+});
+
+const displayShort = computed(() => {
+  if (!dataset.value) return '';
+  if (locale.value === 'zh') return dataset.value.shortDescriptionZh || dataset.value.shortDescription;
+  if (locale.value === 'bo') return dataset.value.shortDescriptionBo || dataset.value.shortDescription;
+  return dataset.value.shortDescription;
+});
+
+const displayLong = computed(() => {
+  if (!dataset.value) return '';
+  if (locale.value === 'zh') return dataset.value.longDescriptionZh || dataset.value.longDescription;
+  if (locale.value === 'bo') return dataset.value.longDescriptionBo || dataset.value.longDescription;
+  return dataset.value.longDescription;
+});
 
 // Keep your iconMap and other script logic the same
 const iconMap: Record<LucideIconName | 'Default', any> = {

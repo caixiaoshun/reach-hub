@@ -1,9 +1,9 @@
 <template>
   <Card class="group relative flex flex-col h-full bg-card text-foreground rounded-xl shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out overflow-hidden border border-border/60 dark:border-slate-700/50 hover:border-primary/70 dark:hover:border-primary/70">
     <div class="relative h-56 w-full overflow-hidden">
-      <img 
-        :src="project.imageUrl" 
-        :alt="`Image for ${project.title}`" 
+      <img
+        :src="project.imageUrl"
+        :alt="`Image for ${displayTitle}`"
         class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
         :data-ai-hint="project.imageAiHint || 'abstract technology'"
       />
@@ -16,9 +16,9 @@
     <CardContent class="flex flex-col flex-grow px-5 py-6 sm:p-5">
       <h3 
         class="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2"
-        :title="project.title"
+        :title="displayTitle"
       >
-        {{ project.title }}
+        {{ displayTitle }}
       </h3>
       
       <p class="text-xs text-muted-foreground mb-3">
@@ -26,7 +26,7 @@
       </p>
 
       <p class="text-base sm:text-sm text-muted-foreground mb-4 line-clamp-2 flex-grow leading-relaxed">
-        {{ project.shortDescription }}
+        {{ displayDescription }}
       </p>
 
       <div v-if="project.tags && project.tags.length" class="flex flex-wrap gap-2 mb-5">
@@ -57,12 +57,28 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-vue-next';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 interface Props {
   project: Project;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const { locale } = useI18n();
+
+const displayTitle = computed(() => {
+  if (locale.value === 'zh') return props.project.titleZh || props.project.title;
+  if (locale.value === 'bo') return props.project.titleBo || props.project.title;
+  return props.project.title;
+});
+
+const displayDescription = computed(() => {
+  if (locale.value === 'zh') return props.project.shortDescriptionZh || props.project.shortDescription;
+  if (locale.value === 'bo') return props.project.shortDescriptionBo || props.project.shortDescription;
+  return props.project.shortDescription;
+});
 </script>
 
 <style scoped>

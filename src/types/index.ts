@@ -11,10 +11,16 @@ export type RelatedPublication = {
 export type Project = {
   id: string;
   title: string;
+  titleZh?: string;
+  titleBo?: string;
   authors: string[];
   year: number | string;
   shortDescription: string;
+  shortDescriptionZh?: string;
+  shortDescriptionBo?: string;
   longDescription: string;
+  longDescriptionZh?: string;
+  longDescriptionBo?: string;
   imageUrl: string;
   imageAiHint?: string; // Added for AI image generation hints
   tags?: string[];
@@ -148,10 +154,16 @@ export type SegLegend = {
 export type SegDataset = {
   id: string;
   title: string;
+  titleZh?: string;
+  titleBo?: string;
   authors: string[]; // Or contributors
   year: string | number;
   shortDescription: string;
+  shortDescriptionZh?: string;
+  shortDescriptionBo?: string;
   longDescription: string; // Full description
+  longDescriptionZh?: string;
+  longDescriptionBo?: string;
   abstract: string;
   tags: string[];
   imageUrl?: string; // For card display
@@ -173,10 +185,16 @@ export type Dataset = SegDataset | PanSharpeningDataset;
 export type PanSharpeningDataset = {
   id: string;
   title: string;
+  titleZh?: string;
+  titleBo?: string;
   authors: string[]; // Or contributors
   year: string | number;
   shortDescription: string;
+  shortDescriptionZh?: string;
+  shortDescriptionBo?: string;
   longDescription: string; // Full description
+  longDescriptionZh?: string;
+  longDescriptionBo?: string;
   abstract: string;
   tags: string[];
   imageUrl?: string; // For card display

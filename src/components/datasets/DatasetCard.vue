@@ -5,7 +5,7 @@
     <div class="relative h-48 w-full overflow-hidden">
       <img
         :src="dataset.imageUrl || 'https://picsum.photos/seed/placeholder-dataset/600/400'"
-        :alt="`Image for ${dataset.title}`"
+        :alt="`Image for ${displayTitle}`"
         :data-ai-hint="dataset.imageAiHint || 'dataset abstract'"
         class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
         loading="lazy"
@@ -16,10 +16,10 @@
     </div>
     <CardHeader class="flex-grow px-4 py-5 md:p-5">
       <CardTitle class="mb-2 text-xl font-semibold leading-tight text-foreground group-hover:text-primary">
-        {{ dataset.title }}
+        {{ displayTitle }}
       </CardTitle>
       <p class="mb-3 line-clamp-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
-        {{ dataset.shortDescription }}
+        {{ displayDescription }}
       </p>
     </CardHeader>
     <CardFooter class="border-t border-border/60 dark:border-slate-700/60 px-4 py-5 md:p-5">
@@ -46,6 +46,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import type { Dataset } from '@/types';
 import { Card, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -55,6 +56,20 @@ import { ChevronRight } from 'lucide-vue-next';
 const props = defineProps<{
   dataset: Dataset;
 }>();
+
+const { locale } = useI18n();
+
+const displayTitle = computed(() => {
+  if (locale.value === 'zh') return props.dataset.titleZh || props.dataset.title;
+  if (locale.value === 'bo') return props.dataset.titleBo || props.dataset.title;
+  return props.dataset.title;
+});
+
+const displayDescription = computed(() => {
+  if (locale.value === 'zh') return props.dataset.shortDescriptionZh || props.dataset.shortDescription;
+  if (locale.value === 'bo') return props.dataset.shortDescriptionBo || props.dataset.shortDescription;
+  return props.dataset.shortDescription;
+});
 
 const MAX_TAGS_DISPLAYED = 3;
 

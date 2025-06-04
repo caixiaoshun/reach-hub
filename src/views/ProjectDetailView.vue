@@ -1,6 +1,6 @@
 <template>
   <AppLayout>
-    <PageHeader :title="project ? project.title : 'Loading Project...'" :subtitle="project ? 'Project Details' : ''"
+    <PageHeader :title="project ? displayTitle : 'Loading Project...'" :subtitle="project ? 'Project Details' : ''"
       :showBackButton="true" />
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div v-if="isLoading" class="flex justify-center items-center min-h-[60vh]">
@@ -10,7 +10,7 @@
       <div v-else-if="project" class="space-y-12">
         <!-- Hero Image -->
         <div class="relative w-full rounded-xl overflow-hidden shadow-lg">
-          <img :src="project.imageUrl" :alt="`Image for ${project.title}`"
+          <img :src="project.imageUrl" :alt="`Image for ${displayTitle}`"
             :data-ai-hint="project.imageAiHint || 'project image'" class="w-full h-full object-contain" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
         </div>
@@ -27,10 +27,10 @@
             <div>
               <!-- Back button removed from here, will be handled by PageHeader -->
               <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-2"> <!-- Removed pt-6 -->
-                {{ project.title }}
+                {{ displayTitle }}
               </h1>
               <p class="text-lg text-muted-foreground">
-                {{ project.shortDescription }}
+                {{ displayShort }}
               </p>
             </div>
 
@@ -48,7 +48,7 @@
             <!-- Abstract Section -->
             <PageSection title="Abstract">
               <p class="text-foreground leading-relaxed whitespace-pre-line">
-                {{ project.longDescription }}
+                {{ displayLong }}
               </p>
             </PageSection>
 
@@ -136,6 +136,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 import type { Project } from '@/types';
 import { mockProjects } from '@/data/projects';
@@ -159,7 +160,30 @@ const route = useRoute();
 const project = ref<Project | null>(null);
 const isLoading = ref(true);
 
+const { locale } = useI18n();
+
 const projectId = computed(() => route.params.id as string);
+
+const displayTitle = computed(() => {
+  if (!project.value) return '';
+  if (locale.value === 'zh') return project.value.titleZh || project.value.title;
+  if (locale.value === 'bo') return project.value.titleBo || project.value.title;
+  return project.value.title;
+});
+
+const displayShort = computed(() => {
+  if (!project.value) return '';
+  if (locale.value === 'zh') return project.value.shortDescriptionZh || project.value.shortDescription;
+  if (locale.value === 'bo') return project.value.shortDescriptionBo || project.value.shortDescription;
+  return project.value.shortDescription;
+});
+
+const displayLong = computed(() => {
+  if (!project.value) return '';
+  if (locale.value === 'zh') return project.value.longDescriptionZh || project.value.longDescription;
+  if (locale.value === 'bo') return project.value.longDescriptionBo || project.value.longDescription;
+  return project.value.longDescription;
+});
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pageHeaderProps = computed(() => {
