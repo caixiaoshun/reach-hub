@@ -1,6 +1,6 @@
 <template>
   <AppLayout>
-    <PageHeader :title="project ? displayTitle : 'Loading Project...'" :subtitle="project ? 'Project Details' : ''"
+    <PageHeader :title="project ? displayTitle : t('loadingProject')" :subtitle="project ? t('projectDetails') : ''"
       :showBackButton="true" />
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div v-if="isLoading" class="flex justify-center items-center min-h-[60vh]">
@@ -42,11 +42,11 @@
               </div>
               <div class="flex items-center">
                 <CalendarDays class="w-4 h-4 mr-2" />
-                <span>Published: {{ project.year }}</span>
+                <span>{{ t('published') }}: {{ project.year }}</span>
               </div>
             </div>
             <!-- Abstract Section -->
-            <PageSection title="Abstract">
+            <PageSection :title="t('abstract')">
               <p class="text-foreground leading-relaxed whitespace-pre-line">
                 {{ displayLong }}
               </p>
@@ -54,12 +54,12 @@
 
 
             <!-- Interactive Demo Section -->
-            <PageSection v-if="project.demoType" title="Interactive Demo">
+            <PageSection v-if="project.demoType" :title="t('interactiveDemo')">
               <div v-if="project.demoType === 'segmentation'">
                 <SegmentationDemo :exampleInputs="project.examples" :route_name="project.route_name" />
               </div>
               <div v-else class="text-muted-foreground">
-                Interactive demo for this project type is not available.
+                {{ t('interactiveDemoUnavailable') }}
               </div>
             </PageSection>
           </div>
@@ -67,11 +67,11 @@
           <!-- Right Column / Sidebar -->
           <div class="lg:col-span-1 space-y-8">
             <!-- Tags Section -->
-            <PageSection title="Tags" v-if="displayTags.length > 0" class="top-24">
+            <PageSection :title="t('tags')" v-if="displayTags.length > 0" class="top-24">
               <div class="flex flex-wrap gap-2">
                 <a v-for="tag in displayTags" :key="tag" :href="getTagWikiLink(tag)" target="_blank" rel="noopener noreferrer"
                   class="text-inherit no-underline"
-                  :title="`Learn more about ${tag} on Wikipedia`">
+                  :title="t('learnMoreWiki', { tag })">
                   <Badge variant="secondary" class="cursor-pointer hover:bg-secondary/80 transition-colors">
                     <TagIcon class="w-3.5 h-3.5 mr-1 text-muted-foreground" />
                     {{ tag }}
@@ -81,17 +81,17 @@
             </PageSection>
 
             <!-- Links & Resources -->
-            <PageSection title="Links & Resources" v-if="project.publicationLink || project.repositoryLink">
+            <PageSection :title="t('linksResources')" v-if="project.publicationLink || project.repositoryLink">
               <div class="space-y-3">
                 <a v-if="project.publicationLink" :href="project.publicationLink" target="_blank" rel="noopener noreferrer"
                   class="flex items-center text-primary hover:underline">
                   <ExternalLink class="w-4 h-4 mr-2" />
-                  View Publication
+                  {{ t('viewPaper') }}
                 </a>
                 <a v-if="project.repositoryLink" :href="project.repositoryLink" target="_blank" rel="noopener noreferrer"
                   class="flex items-center text-primary hover:underline">
                   <Github class="w-4 h-4 mr-2" />
-                  View Repository
+                  {{ t('viewRepo') }}
                 </a>
               </div>
             </PageSection>
@@ -99,7 +99,7 @@
         </div>
 
         <!-- Cite This Project Section -->
-        <PageSection title="Cite This Project">
+        <PageSection :title="t('citeProject')">
           <div class="bg-muted p-4 rounded-lg shadow">
             <pre class="text-sm text-muted-foreground whitespace-pre-wrap break-all relative group">
 {{ bibtexCitation }}
@@ -119,14 +119,14 @@
       </div>
 
       <div v-else class="text-center py-12">
-        <h2 class="text-2xl font-semibold mb-4">Project Not Found</h2>
+        <h2 class="text-2xl font-semibold mb-4">{{ t('projectNotFound') }}</h2>
         <p class="text-muted-foreground mb-6">
-          The project you are looking for does not exist or could not be loaded.
+          {{ t('projectMissingDesc') }}
         </p>
         <RouterLink to="/projects">
           <Button variant="outline">
             <ArrowLeft class="w-4 h-4 mr-2" />
-            Back to Projects
+            {{ t('backToProjects') }}
           </Button>
         </RouterLink>
       </div>
@@ -160,7 +160,7 @@ const route = useRoute();
 const project = ref<Project | null>(null);
 const isLoading = ref(true);
 
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 
 const projectId = computed(() => route.params.id as string);
 
@@ -196,22 +196,22 @@ const displayTags = computed(() => {
 const pageHeaderProps = computed(() => {
   if (isLoading.value) {
     return {
-      title: "Loading Project...",
-      breadcrumbs: [{ text: "Projects", to: "/projects" }, { text: "Loading..." }],
+      title: t('loadingProject'),
+      breadcrumbs: [{ text: t('nav.projects'), to: '/projects' }, { text: t('loadingProject') }],
       showBackButton: true,
     };
   }
   if (project.value) {
     return {
       title: project.value.title,
-      subtitle: "Project Details",
-      breadcrumbs: [{ text: "Projects", to: "/projects" }, { text: project.value.title }],
+      subtitle: t('projectDetails'),
+      breadcrumbs: [{ text: t('nav.projects'), to: '/projects' }, { text: project.value.title }],
       showBackButton: true,
     };
   }
   return {
-    title: "Project Not Found",
-    breadcrumbs: [{ text: "Projects", to: "/projects" }, { text: "Not Found" }],
+    title: t('projectNotFound'),
+    breadcrumbs: [{ text: t('nav.projects'), to: '/projects' }, { text: t('pageNotFound') }],
     showBackButton: true,
   };
 });
@@ -249,10 +249,10 @@ const copyBibtex = async () => {
   if (!project.value) return;
   try {
     await navigator.clipboard.writeText(bibtexCitation.value);
-    toast({ title: 'Success', description: 'BibTeX citation copied to clipboard.', variant: 'default' });
+    toast({ title: t('success'), description: t('bibtexCopied'), variant: 'default' });
   } catch (err) {
     console.error('Failed to copy BibTeX: ', err);
-    toast({ title: 'Error', description: 'Failed to copy BibTeX to clipboard.', variant: 'destructive' });
+    toast({ title: t('error'), description: t('bibtexCopyFailed'), variant: 'destructive' });
   }
 };
 
