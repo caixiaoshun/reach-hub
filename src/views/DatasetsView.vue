@@ -1,7 +1,7 @@
 <template>
   <AppLayout>
-    <PageHeader title="Our Datasets"
-      description="Explore the datasets curated and utilized by our research group.">
+    <PageHeader :title="t('datasetsTitle')"
+      :description="t('datasetsSubtitle')">
     </PageHeader>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -14,7 +14,7 @@
           <Input
             type="text"
             v-model="searchQuery"
-            placeholder="Search datasets by name, tag, or author..."
+            :placeholder="t('datasetSearchPlaceholder')"
             class="w-full h-14 pl-12 pr-4 py-3 text-lg rounded-xl shadow-md focus:ring-primary focus:border-primary"
           />
         </div>
@@ -34,12 +34,12 @@
       <!-- No Results State -->
       <div v-else class="text-center py-12">
         <Search class="mx-auto h-16 w-16 text-muted-foreground mb-6" />
-        <h3 class="text-2xl font-semibold text-foreground mb-2">No Datasets Found</h3>
+        <h3 class="text-2xl font-semibold text-foreground mb-2">{{ t('noDatasetsFound') }}</h3>
         <p class="text-muted-foreground">
-          Your search for "{{ searchQuery }}" did not match any datasets.
+          {{ t('noDatasetsMatch') }}
         </p>
         <p class="text-muted-foreground mt-1">
-          Try refining your search terms or explore all datasets.
+          {{ t('adjustSearchDatasets') }}
         </p>
       </div>
     </div>
@@ -48,6 +48,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import type { Dataset } from '@/types';
 import { mockDatasets } from '@/data/datasets';
 import DatasetCard from '@/components/datasets/DatasetCard.vue';
@@ -56,6 +57,8 @@ import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-vue-next';
 import AppLayout from '@/components/layout/AppLayout.vue';
 import PageHeader from '@/components/layout/PageHeader.vue';
+
+const { t } = useI18n();
 
 const datasets = ref<Dataset[]>([]);
 const searchQuery = ref('');

@@ -16,51 +16,51 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: HomeView,
-    meta: { title: 'Research Hub - Home' }
+    meta: { title: '研究中心 - 首页' }
   },
   {
     path: '/introduction',
     name: 'Introduction',
     component: IntroductionView,
-    meta: { title: 'About Our Research Group' }
+    meta: { title: '关于研究中心' }
   },
   {
     path: '/projects',
     name: 'Projects',
     component: ProjectsView,
-    meta: { title: 'Project Showcase' }
+    meta: { title: '项目展示' }
   },
   {
     path: '/projects/:id',
     name: 'ProjectDetail',
     component: ProjectDetailView,
     props: true,
-    meta: { title: 'Project Details' }
+    meta: { title: '项目详情' }
   },
   {
     path: '/datasets',
     name: 'Datasets',
     component: DatasetsView,
-    meta: { title: 'Datasets Showcase' }
+    meta: { title: '数据集展示' }
   },
   {
     path: '/datasets/:id',
     name: 'DatasetDetail',
     component: DatasetDetailView,
     props: true,
-    meta: { title: 'Dataset Details' }
+    meta: { title: '数据集详情' }
   },
   {
     path: '/contact',
     name: 'Contact',
     component: ContactView,
-    meta: { title: 'Contact Us' }
+    meta: { title: '联系我们' }
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/views/NotFoundView.vue'),
-    meta: { title: 'Page Not Found' }
+    meta: { title: '页面未找到' }
   },
   // { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];
