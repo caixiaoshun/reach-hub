@@ -23,6 +23,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/layout/Footer.vue')['default']
     Input: typeof import('./src/components/ui/input/Input.vue')['default']
     Label: typeof import('./src/components/ui/label/Label.vue')['default']
+    LanguageToggle: typeof import('./src/components/shared/LanguageToggle.vue')['default']
     Navbar: typeof import('./src/components/layout/Navbar.vue')['default']
     PageHeader: typeof import('./src/components/layout/PageHeader.vue')['default']
     PageSection: typeof import('./src/components/shared/PageSection.vue')['default']
