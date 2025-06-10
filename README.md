@@ -1,4 +1,4 @@
-<p align="right"><a href="./enREADME.md">English Version</a></p>
+<p align="right"><a href="./enREADME.md">英文版</a></p>
 
 # Reach Hub 高端科研展示平台
 
@@ -89,7 +89,7 @@ reach-hub/
 - **Q: 如何添加新项目或数据集？**
   A: 在 `src/data/projects.ts` 或 `src/data/datasets.ts` 中补充元数据。
 - **Q: 如何切换中英文？**
-  A: 右上角点击“English Version”或“中文版”即可切换。
+  A: 右上角点击“英文版”或“中文版”即可切换。
 
 ## 未来规划（Roadmap）
 - [ ] 支持更多数据集格式与可视化类型
