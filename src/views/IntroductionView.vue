@@ -134,18 +134,18 @@ const teamMembers = ref<TeamMember[]>([
   },
   {
     id: 2,
-    name: '王诗颖',
-    title: '青海大学博士研究生',
-    bio: '王诗颖于2015年获吉林农业大学工学学士学位，2018年获青海大学硕士学位，目前在青海大学攻读博士，研究方向为遥感图像处理，尤其是草地信息学。',
+    name: '王世颍',
+    title: '青海大学博士',
+    bio: '王世颍于2015年获吉林农业大学工学学士学位，2018年获青海大学硕士学位，目前在青海大学攻读博士，研究方向为遥感图像处理，尤其是草地信息学。',
     imageUrl: new URL('@/assets/biography/wsy.jpg', import.meta.url).href,
     imageAiHint: 'software engineer',
     socials: { linkedin: 'https://cs.qhu.edu.cn/jxgz/jxysz/szgk/50127.htm', twitter: '#' }
   },
   {
     id: 3,
-    name: '邹雪超',
+    name: '邹学超',
     title: '北京交通大学博士生',
-    bio: '邹雪超于2021年和2024年在青海大学分别获得工学学士和硕士学位，现为北京交通大学计算机与信息技术学院博士研究生，研究兴趣为计算机视觉，尤其是遥感图像处理。',
+    bio: '邹学超于2021年和2024年在青海大学分别获得工学学士和硕士学位，现为北京交通大学计算机与信息技术学院博士研究生，研究兴趣为计算机视觉，尤其是遥感图像处理。',
     imageUrl: new URL('@/assets/biography/zxc-2.jpg', import.meta.url).href,
     imageAiHint: 'female researcher',
     socials: { linkedin: 'https://github.com/XavierJiezou', scholar: '#' }

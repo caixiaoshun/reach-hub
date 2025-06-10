@@ -62,21 +62,21 @@
                 <Mail class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 class="font-semibold text-foreground">{{ t('emailAddress') }}</h3>
-                  <a href="mailto:contact@researchhub.edu" class="text-primary hover:underline">taopin@tsinghua.edu.cn</a>
+                  <a href="mailto:contact@researchhub.edu" class="text-primary hover:underline">wangshiying.qhu@foxmail.com</a>
                 </div>
               </div>
               <div class="flex items-start space-x-3">
                 <Phone class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 class="font-semibold text-foreground">电话</h3>
-                  <p class="text-muted-foreground">62772129</p>
+                  <p class="text-muted-foreground">0971-5315609</p>
                 </div>
               </div>
               <div class="flex items-start space-x-3">
                 <MapPin class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 class="font-semibold text-foreground">地址</h3>
-                  <p class="text-muted-foreground">北京市清华大学</p>
+                  <p class="text-muted-foreground">青海省西宁市青海大学</p>
                 </div>
               </div>
             </CardContent>
