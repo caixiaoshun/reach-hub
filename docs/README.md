@@ -1,16 +1,16 @@
-# **App Name**: Research Hub
+# **应用名称**：研究中心
 
-## Core Features:
+## 核心功能：
 
-- Project Card Display: Display research projects in a card format on the 'Project Showcase' page with title, brief description, and authors.
-- Real-time Project Search: Implement a real-time search bar on the 'Project Showcase' page to filter projects by title or member name.
-- Interactive Project Demo: Create a detailed project page with an interactive demo and a 'View More' button on each project card.
+- 项目卡片展示：在“项目展示”页面以卡片形式展示科研项目，包括标题、简要描述和作者信息。
+- 实时项目搜索：在“项目展示”页面提供实时搜索框，可按标题或成员姓名过滤项目。
+- 交互式项目演示：创建详细的项目页面，包含交互式演示，并在每张项目卡片上提供“查看更多”按钮。
 
-## Style Guidelines:
+## 样式指南：
 
-- Primary color: Use a professional blue (#007BFF) for headers and main elements.
-- Secondary color: Light gray (#F8F9FA) for background and card containers.
-- Accent: Teal (#20C997) for interactive elements and highlights.
-- Clean and readable sans-serif fonts for body text.
-- Use modern, line-style icons for navigation and project cards.
-- Use a grid-based layout for the 'Project Showcase' page to ensure a clean and organized presentation.
+- 主色调：标题和主要元素使用专业的蓝色 (#007BFF)。
+- 次色调：背景和卡片容器使用浅灰色 (#F8F9FA)。
+- 强调色：交互元素和高亮采用青色 (#20C997)。
+- 正文采用简洁易读的无衬线字体。
+- 导航和项目卡片使用现代线性图标。
+- “项目展示”页面采用网格布局，以确保页面整洁有序。
