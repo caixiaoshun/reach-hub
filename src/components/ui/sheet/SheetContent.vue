@@ -36,8 +36,7 @@ defineOptions({
   inheritAttrs: false,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   side?: SheetVariantProps['side'];
   showCloseButton?: boolean;
   class?: string; // To allow passing class from parent

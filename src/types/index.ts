@@ -170,8 +170,6 @@ export type SegDataset = {
   tags: string[];
   tagsZh?: string[];
   tagsBo?: string[];
-  tagsZh?: string[];
-  tagsBo?: string[];
   imageUrl?: string; // For card display
   imageAiHint?: string;
   domain: string; // e.g., "Remote Sensing", "Urban Mapping", "Climate Science"
@@ -203,6 +201,8 @@ export type PanSharpeningDataset = {
   longDescriptionBo?: string;
   abstract: string;
   tags: string[];
+  tagsZh?: string[];
+  tagsBo?: string[];
   imageUrl?: string; // For card display
   imageAiHint?: string;
   domain: string; // e.g., "Remote Sensing", "Urban Mapping", "Climate Science"
