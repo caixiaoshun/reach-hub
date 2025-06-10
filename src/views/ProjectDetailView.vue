@@ -192,29 +192,6 @@ const displayTags = computed(() => {
   return project.value.tags;
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const pageHeaderProps = computed(() => {
-  if (isLoading.value) {
-    return {
-      title: t('loadingProject'),
-      breadcrumbs: [{ text: t('nav.projects'), to: '/projects' }, { text: t('loadingProject') }],
-      showBackButton: true,
-    };
-  }
-  if (project.value) {
-    return {
-      title: project.value.title,
-      subtitle: t('projectDetails'),
-      breadcrumbs: [{ text: t('nav.projects'), to: '/projects' }, { text: project.value.title }],
-      showBackButton: true,
-    };
-  }
-  return {
-    title: t('projectNotFound'),
-    breadcrumbs: [{ text: t('nav.projects'), to: '/projects' }, { text: t('pageNotFound') }],
-    showBackButton: true,
-  };
-});
 
 onMounted(async () => {
   isLoading.value = true;
