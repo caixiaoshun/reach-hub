@@ -80,10 +80,6 @@ reach-hub/
 └── vite.config.ts
 ```
 
-## Screenshots & Demo
-> Insert homepage, project card, dataset detail screenshots here.
-
-![Home Example](./src/assets/imageUrl/home_bg.jpg)
 
 ## FAQ
 - **Q: Port already in use on startup?**
