@@ -1,0 +1,42 @@
+{
+  "name": "vue-research-hub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "typecheck": "vue-tsc --noEmit",
+    "translate-md": "node scripts/translate-markdown.js"
+  },
+  "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.1",
+    "axios": "^1.9.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "element-plus": "^2.9.11",
+    "lucide-vue-next": "^0.379.0",
+    "tailwind-merge": "^2.3.0",
+    "vue": "^3.4.27",
+    "vue-i18n": "9",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.26.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.4.5",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.7.0",
+    "vite": "^5.2.11",
+    "vue-tsc": "^2.0.19"
+  }
+}
