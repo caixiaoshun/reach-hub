@@ -80,10 +80,6 @@ reach-hub/
 └── vite.config.ts
 ```
 
-## 截图与演示
-> 可在此处插入平台首页、项目卡片、数据集详情等界面截图。
-
-![平台首页示例](./src/assets/imageUrl/home_bg.jpg)
 
 ## 常见问题（FAQ）
 - **Q: 启动时报错端口被占用？**
