@@ -9,7 +9,7 @@
       <div v-if="showBackButton" class="mb-4">
         <Button @click="goBack" variant="outline" size="sm" class="flex items-center space-x-1">
           <ArrowLeft class="w-4 h-4" />
-          <span>Back</span>
+          <span>{{ t('goBack') }}</span>
         </Button>
       </div>
       <div v-if="breadcrumbs && breadcrumbs.length" class="mb-2">
@@ -48,6 +48,7 @@
 
 <script setup lang="ts">
 import { useRouter, RouterLink } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 
@@ -67,6 +68,7 @@ defineProps<{
 }>();
 
 const router = useRouter();
+const { t } = useI18n();
 const goBack = () => {
   router.back();
 };

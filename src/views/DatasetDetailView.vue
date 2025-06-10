@@ -1,14 +1,14 @@
 <template>
   <AppLayout>
     <PageHeader v-if="dataset" :title="displayTitle" :showBackButton="true"
-      :breadcrumbs="[{ text: 'Datasets', to: '/datasets' }, { text: displayTitle, to: route.fullPath }]" class="pb-6 md:pb-8" />
+      :breadcrumbs="[{ text: t('nav.dataset'), to: '/datasets' }, { text: displayTitle, to: route.fullPath }]" class="pb-6 md:pb-8" />
     <div v-else-if="!isLoading" class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-      <PageHeader title="Dataset Not Found" :showBackButton="true"
-        :breadcrumbs="[{ text: 'Datasets', to: '/datasets' }, { text: 'Not Found', to: route.fullPath }]" />
+      <PageHeader :title="t('datasetNotFound')" :showBackButton="true"
+        :breadcrumbs="[{ text: t('nav.dataset'), to: '/datasets' }, { text: t('datasetNotFound'), to: route.fullPath }]" />
     </div>
     <div v-else class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-      <PageHeader title="Loading Dataset..." :showBackButton="true"
-        :breadcrumbs="[{ text: 'Datasets', to: '/datasets' }, { text: 'Loading...', to: route.fullPath }]" />
+      <PageHeader :title="t('loadingDataset')" :showBackButton="true"
+        :breadcrumbs="[{ text: t('nav.dataset'), to: '/datasets' }, { text: t('loadingDataset'), to: route.fullPath }]" />
     </div>
 
     <!-- Back button floating style REMOVED -->
@@ -35,10 +35,10 @@
       <div class="grid lg:grid-cols-12 gap-x-8 xl:gap-x-12 items-start">
         <!-- Main content area (Description, Sample Data) -->
         <div class="lg:col-span-8 xl:col-span-9 space-y-10 md:space-y-12">
-          <PageSection title="Full Description" v-if="dataset.longDescription" class="pt-0">
+          <PageSection :title="t('fullDescription')" v-if="dataset.longDescription" class="pt-0">
             <!-- Added title styling -->
             <h2 class="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">
-              About this Dataset
+              {{ t('aboutThisDataset') }}
             </h2>
             <div class="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed"
               v-html="displayLong"></div>
@@ -57,30 +57,30 @@
             <h3
               class="text-lg font-bold text-foreground mb-5 border-b border-border/60 dark:border-slate-700 pb-3 flex items-center">
               <Info class="w-5 h-5 mr-2.5 text-primary" />
-              Dataset Information
+              {{ t('datasetInfo') }}
             </h3>
             <div class="space-y-5 text-sm">
               <div class="flex items-start space-x-3">
                 <LinkIcon class="w-4 h-4 mt-0.5 text-sky-600 dark:text-sky-400 shrink-0" />
                 <div>
-                  <h4 class="font-semibold text-foreground/90 mb-0.5">Source</h4>
+                  <h4 class="font-semibold text-foreground/90 mb-0.5">{{ t('source') }}</h4>
                   <a v-if="dataset.article_link" :href="dataset.article_link" target="_blank" rel="noopener noreferrer"
                     class="text-sky-600 dark:text-sky-400 hover:underline break-all"
-                    :title="`Read article: ${dataset.article}`">{{ dataset.article || 'View Source' }}</a>
-                  <p v-else class="text-muted-foreground">{{ dataset.article || 'Not specified' }}</p>
+                    :title="`Read article: ${dataset.article}`">{{ dataset.article || t('viewSource') }}</a>
+                  <p v-else class="text-muted-foreground">{{ dataset.article || t('notSpecified') }}</p>
                 </div>
               </div>
               <div class="flex items-start space-x-3">
                 <CalendarDays class="w-4 h-4 mt-0.5 text-amber-600 dark:text-amber-400 shrink-0" />
                 <div>
-                  <h4 class="font-semibold text-foreground/90 mb-0.5">Year</h4>
+                  <h4 class="font-semibold text-foreground/90 mb-0.5">{{ t('year') }}</h4>
                   <p class="text-muted-foreground">{{ dataset.year }}</p>
                 </div>
               </div>
               <div class="flex items-start space-x-3">
                 <GlobeIcon class="w-4 h-4 mt-0.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <div>
-                  <h4 class="font-semibold text-foreground/90 mb-0.5">Domain</h4>
+                  <h4 class="font-semibold text-foreground/90 mb-0.5">{{ t('domain') }}</h4>
                   <p class="text-muted-foreground">{{ dataset.domain }}</p>
                 </div>
               </div>
@@ -88,7 +88,7 @@
                 <div class="flex items-start space-x-3">
                   <TagIcon class="w-4 h-4 mt-1 text-purple-600 dark:text-purple-400 shrink-0" />
                   <div>
-                    <h4 class="font-semibold text-foreground/90 mb-1.5">Tags</h4>
+                    <h4 class="font-semibold text-foreground/90 mb-1.5">{{ t('tags') }}</h4>
                     <div class="flex flex-wrap gap-2">
                       <Badge v-for="tag in displayTags" :key="tag" variant="outline"
                         class="cursor-pointer transition-all duration-200 ease-in-out hover:shadow-md hover:scale-105 hover:bg-primary/10 dark:hover:bg-primary/20 group border-border hover:border-primary/70 dark:border-slate-600 dark:hover:border-primary/50"
@@ -110,10 +110,10 @@
         <div class="text-center mb-8 md:mb-10">
           <h2 class="text-2xl md:text-3xl font-bold text-foreground">
             <DownloadCloud class="inline-block w-8 h-8 mr-3 text-primary align-[-0.125em]" />
-            Access Dataset
+            {{ t('accessDataset') }}
           </h2>
           <p class="mt-2 text-muted-foreground max-w-2xl mx-auto">
-            Download the dataset files or access them through the provided links.
+            {{ t('downloadDatasetFiles') }}
           </p>
         </div>
 
@@ -133,7 +133,7 @@
           </Button>
         </div>
         <p class="mt-8 text-sm text-muted-foreground text-center max-w-2xl mx-auto">
-          All links open in a new tab. Please refer to the source for licensing information and usage terms.
+          {{ t('linksOpenNewTab') }}
         </p>
       </PageSection>
 
@@ -144,14 +144,14 @@
     <div v-else-if="!isLoading && !dataset"
       class="text-center py-20 min-h-[calc(100vh-20rem)] flex flex-col items-center justify-center px-4">
       <HelpCircle class="w-20 h-20 text-destructive mb-6" />
-      <h2 class="text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100">Dataset Not Found</h2>
+      <h2 class="text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100">{{ t('datasetNotFound') }}</h2>
       <p class="text-muted-foreground mb-8 max-w-md">
-        We couldn't find the dataset you were looking for. It might have been moved or removed.
+        {{ t('datasetMissingDesc') }}
       </p>
       <RouterLink to="/datasets">
         <Button variant="outline" size="lg">
           <ArrowLeft class="w-5 h-5 mr-2" />
-          Back to All Datasets
+          {{ t('backToDatasets') }}
         </Button>
       </RouterLink>
     </div>
@@ -159,7 +159,7 @@
       <svg aria-hidden="true"
         class="inline w-12 h-12 text-muted-foreground animate-spin dark:text-gray-600 fill-primary"
         viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- SVG path data --></svg>
-      <p class="text-xl text-muted-foreground mt-6">Loading dataset details...</p>
+      <p class="text-xl text-muted-foreground mt-6">{{ t('loadingDataset') }}</p>
     </div>
   </AppLayout>
 </template>
@@ -203,7 +203,7 @@ const route = useRoute();
 const datasetId = computed(() => route.params.id as string);
 const dataset = ref<SegDataset | PanSharpeningDataset | null>(null);
 const isLoading = ref(true);
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 
 const displayTitle = computed(() => {
   if (!dataset.value) return '';
